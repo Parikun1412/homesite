@@ -4,20 +4,20 @@
                 <div class="row">
                     <div class="col-auto align-self-center">
                         <div class="header-logo">
-                            <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+                            <a href="index.php"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
                         </div>
                     </div>
                     <div class="col align-self-center d-none d-lg-block">
                         <div class="main-menu">
                             <ul>
-                                <li class="dropdown"><a href="#">Trang chủ</a>
+                                <li class="dropdown"><a href="index.php">Trang chủ</a>
                                 </li>
-                                <li class="dropdown position-static"><a href="#">Sản phẩm</a>
+                                <li class="dropdown position-static"><a href="category.php">Sản phẩm</a>
 
                                 </li>
-                                <li class="dropdown "><a href="#">Giới thiệu</a>
+                                <li class="dropdown "><a href="about.php">Giới thiệu</a>
                                 </li>
-                                <li><a href="about.html">Liên hệ</a></li>
+                                <li><a href="contact.php">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>

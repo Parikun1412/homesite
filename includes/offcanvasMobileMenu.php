@@ -5,15 +5,15 @@
 
             <div class="offcanvas-menu mb-4">
                 <ul>
-                    <li><a href="#"><span class="menu-text">Trang chủ</span></a>
+                    <li><a href="index.php"><span class="menu-text">Trang chủ</span></a>
                     </li>
-                    <li><a href="#"><span class="menu-text">Sản phẩm</span></a>
+                    <li><a href="category.php"><span class="menu-text">Sản phẩm</span></a>
 
                     </li>
-                    <li><a href="#"><span class="menu-text">Giới thiệu</span></a>
+                    <li><a href="about.php"><span class="menu-text">Giới thiệu</span></a>
 
                     </li>
-                    <li><a href="about.html">Liên hệ</a></li>
+                    <li><a href="contact.php">Liên hệ</a></li>
                 </ul>
             </div>
             <!-- OffCanvas Menu End -->
