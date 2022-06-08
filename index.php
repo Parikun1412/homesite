@@ -9,46 +9,40 @@
     <meta name="description" content="Jesco - Fashoin eCommerce HTML Template" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/linkCss.php';
-?>
+    require_once $path . '/includes/linkCss.php';
+    ?>
 
 </head>
 
 <body>
-
-    <!-- Top Bar -->
-
-    <div class="header-to-bar"> <b>Gọi trực tiếp hoặc liên hệ Zalo số: 0938835402 - Trần Thị Hiên</b> </div>
-
-    <!-- Top Bar -->
     <!-- Header Area Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/header.php';
-?>
+    require_once $path . '/includes/header.php';
+    ?>
     <!-- Header Area End -->
     <div class="offcanvas-overlay"></div>
 
     <!-- OffCanvas Wishlist Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/offcanvasWishlist.php';
-?>
+    require_once $path . '/includes/offcanvasWishlist.php';
+    ?>
     <!-- OffCanvas Wishlist End -->
     <!-- OffCanvas Cart Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/offcanvasCart.php';
-?>
+    require_once $path . '/includes/offcanvasCart.php';
+    ?>
     <!-- OffCanvas Cart End -->
 
     <!-- OffCanvas Menu Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/offcanvasMobileMenu.php';
-?>
+    require_once $path . '/includes/offcanvasMobileMenu.php';
+    ?>
     <!-- OffCanvas Menu End -->
 
     <!-- Hero/Intro Slider Start -->
@@ -69,8 +63,7 @@
                                         ngay<i class="fa fa-shopping-basket ml-15px" aria-hidden="true"></i></a>
                                 </div>
                             </div>
-                            <div
-                                class="col-xl-7 col-lg-7 col-md-7 col-sm-7 d-flex justify-content-center position-relative">
+                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 d-flex justify-content-center position-relative">
                                 <div class="show-case">
                                     <div class="hero-slide-image">
                                         <img src="assets/images/banner/banner_ga.jpg" alt="" />
@@ -103,8 +96,7 @@
                                         ngay<i class="fa fa-shopping-basket ml-15px" aria-hidden="true"></i></a>
                                 </div>
                             </div>
-                            <div
-                                class="col-xl-7 col-lg-7 col-md-7 col-sm-7 d-flex justify-content-center position-relative">
+                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 d-flex justify-content-center position-relative">
                                 <div class="show-case">
                                     <div class="hero-slide-image">
                                         <img src="assets/images/banner/banner-heo.png" alt="" />
@@ -221,22 +213,19 @@
                         <!-- 1st tab start -->
                         <div class="tab-pane fade show active">
                             <div class="row">
-                                <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                    data-aos-delay="200">
+                                <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up" data-aos-delay="200">
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="product.php" class="image">
                                                 <img src="assets/images/product-image/1.jpg" alt="Product" />
-                                                <img class="hover-image" src="assets/images/product-image/2.jpg"
-                                                    alt="Product" />
+                                                <img class="hover-image" src="assets/images/product-image/2.jpg" alt="Product" />
                                             </a>
                                             <span class="badges">
                                                 <span class="new">New</span>
                                             </span>
                                             <div class="actions">
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
-                                                        class="pe-7s-like"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="pe-7s-like"></i></a>
                                             </div>
                                             <button title="Add To Cart" class=" add-to-cart">Add
                                                 To Cart</button>
@@ -248,7 +237,7 @@
                                                 </span>
                                                 <span class="rating-num">( 5 Review )</span>
                                             </span>
-                                            <h5 class="title"><a href="single-product.html">Women's Elizabeth Coat
+                                            <h5 class="title"><a href="product.php">Women's Elizabeth Coat
                                                 </a>
                                             </h5>
                                             <span class="price">
@@ -446,73 +435,73 @@
     </div>
     <!-- Testimonial Area End -->
 
-        <!-- Feature Area Srart -->
-        <div class="feature-area pb-100px">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6  ">
-                        <!-- single item -->
-                        <div class="single-feature">
-                            <div class="feature-icon">
-                                <img src="assets/images/icons/1.png" alt="">
-                            </div>
-                            <div class="feature-content">
-                                <h4 class="title">Free Shipping</h4>
-                                <span class="sub-title">Capped at $39 per order</span>
-                            </div>
+    <!-- Feature Area Srart -->
+    <div class="feature-area pb-100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6  ">
+                    <!-- single item -->
+                    <div class="single-feature">
+                        <div class="feature-icon">
+                            <img src="assets/images/icons/1.png" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="title">Free Shipping</h4>
+                            <span class="sub-title">Capped at $39 per order</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- single item -->
+                <div class="col-lg-4 col-md-6 mb-md-30px mb-lm-30px mt-lm-30px">
+                    <div class="single-feature">
+                        <div class="feature-icon">
+                            <img src="assets/images/icons/2.png" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="title">Card Payments</h4>
+                            <span class="sub-title">12 Months Installments</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- single item -->
+                <div class="col-lg-4 col-md-6 ">
+                    <div class="single-feature">
+                        <div class="feature-icon">
+                            <img src="assets/images/icons/3.png" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="title">Easy Returns</h4>
+                            <span class="sub-title">Shop With Confidence</span>
                         </div>
                     </div>
                     <!-- single item -->
-                    <div class="col-lg-4 col-md-6 mb-md-30px mb-lm-30px mt-lm-30px">
-                        <div class="single-feature">
-                            <div class="feature-icon">
-                                <img src="assets/images/icons/2.png" alt="">
-                            </div>
-                            <div class="feature-content">
-                                <h4 class="title">Card Payments</h4>
-                                <span class="sub-title">12 Months Installments</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single item -->
-                    <div class="col-lg-4 col-md-6 ">
-                        <div class="single-feature">
-                            <div class="feature-icon">
-                                <img src="assets/images/icons/3.png" alt="">
-                            </div>
-                            <div class="feature-content">
-                                <h4 class="title">Easy Returns</h4>
-                                <span class="sub-title">Shop With Confidence</span>
-                            </div>
-                        </div>
-                        <!-- single item -->
-                    </div>
                 </div>
             </div>
         </div>
-        <!-- Feature Area End -->
+    </div>
+    <!-- Feature Area End -->
 
     <!-- Footer Area Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/footer.php';
-?>
+    require_once $path . '/includes/footer.php';
+    ?>
     <!-- Footer Area End -->
 
     <!-- Search Modal Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/modals.php';
-?>
+    require_once $path . '/includes/modals.php';
+    ?>
     <!-- Modal end -->
 
     <!-- Global Vendor, plugins JS -->
 
     <!-- Vendor JS -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/scripts.php';
-?>
+    require_once $path . '/includes/scripts.php';
+    ?>
 </body>
 
 </html>

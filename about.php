@@ -9,46 +9,40 @@
     <meta name="description" content="Jesco - Fashoin eCommerce HTML Template" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/linkCss.php';
-?>
+    require_once $path . '/includes/linkCss.php';
+    ?>
 
 </head>
 
 <body>
-
-    <!-- Top Bar -->
-
-    <div class="header-to-bar"> HELLO EVERYONE! 25% Off All Products </div>
-
-    <!-- Top Bar -->
     <!-- Header Area Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/header.php';
-?>
+    require_once $path . '/includes/header.php';
+    ?>
     <!-- Header Area End -->
-     <div class="offcanvas-overlay"></div>
+    <div class="offcanvas-overlay"></div>
 
     <!-- OffCanvas Wishlist Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/offcanvasWishlist.php';
-?>
+    require_once $path . '/includes/offcanvasWishlist.php';
+    ?>
     <!-- OffCanvas Wishlist End -->
     <!-- OffCanvas Cart Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/offcanvasCart.php';
-?>
+    require_once $path . '/includes/offcanvasCart.php';
+    ?>
     <!-- OffCanvas Cart End -->
 
     <!-- OffCanvas Menu Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/offcanvasMobileMenu.php';
-?>
+    require_once $path . '/includes/offcanvasMobileMenu.php';
+    ?>
     <!-- OffCanvas Menu End -->
 
     <!-- About Intro Area start-->
@@ -94,8 +88,7 @@
                             Every Day</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius modjior tem incididunt
                             ut labore et dolore magna aliqua.</p>
-                        <a href="shop-left-sidebar.html" class="btn btn-primary service-btn"> Shop Now <i
-                                class="fa fa-shopping-basket ml-10px" aria-hidden="true"></i></a>
+                        <a href="shop-left-sidebar.html" class="btn btn-primary service-btn"> Shop Now <i class="fa fa-shopping-basket ml-10px" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -378,24 +371,24 @@
 
 
     <!-- Footer Area Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/footer.php';
-?>
+    require_once $path . '/includes/footer.php';
+    ?>
     <!-- Footer Area End -->
 
     <!-- Search Modal Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/modals.php';
-?>
+    require_once $path . '/includes/modals.php';
+    ?>
     <!-- Login Modal End -->
 
     <!-- Global Vendor, plugins JS -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/scripts.php';
-?>
+    require_once $path . '/includes/scripts.php';
+    ?>
 </body>
 
 </html>

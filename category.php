@@ -9,45 +9,40 @@
     <meta name="description" content="Jesco - Fashoin eCommerce HTML Template" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/linkCss.php';
-?>
+    require_once $path . '/includes/linkCss.php';
+    ?>
 
 </head>
 
 <body>
-    <!-- Top Bar -->
-
-    <div class="header-to-bar"> <b>Gọi trực tiếp hoặc liên hệ Zalo số: 0938835402 - Trần Thị Hiên</b> </div>
-
-    <!-- Top Bar -->
     <!-- Header Area Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/header.php';
-?>
+    require_once $path . '/includes/header.php';
+    ?>
     <!-- Header Area End -->
     <div class="offcanvas-overlay"></div>
 
     <!-- OffCanvas Wishlist Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/offcanvasWishlist.php';
-?>
+    require_once $path . '/includes/offcanvasWishlist.php';
+    ?>
     <!-- OffCanvas Wishlist End -->
     <!-- OffCanvas Cart Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/offcanvasCart.php';
-?>
+    require_once $path . '/includes/offcanvasCart.php';
+    ?>
     <!-- OffCanvas Cart End -->
 
     <!-- OffCanvas Menu Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/offcanvasMobileMenu.php';
-?>
+    require_once $path . '/includes/offcanvasMobileMenu.php';
+    ?>
     <!-- OffCanvas Menu End -->
 
     <!-- breadcrumb-area end -->
@@ -99,29 +94,21 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="shop-grid">
                                         <div class="row mb-n-30px">
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="200">
+                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up" data-aos-delay="200">
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/1.jpg"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="assets/images/product-image/1.jpg" alt="Product" />
+                                                            <img src="assets/images/product-image/1.jpg" alt="Product" />
+                                                            <img class="hover-image" src="assets/images/product-image/1.jpg" alt="Product" />
                                                         </a>
                                                         <span class="badges">
                                                             <span class="new">New</span>
                                                         </span>
                                                         <div class="actions">
-                                                            <a href="wishlist.html" class="action wishlist"
-                                                                title="Wishlist"><i class="pe-7s-like"></i></a>
-                                                            <a href="#" class="action quickview"
-                                                                data-link-action="quickview" title="Quick view"
-                                                                data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                                                    class="pe-7s-search"></i></a>
-                                                            <a href="compare.html" class="action compare"
-                                                                title="Compare"><i class="pe-7s-refresh-2"></i></a>
+                                                            <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="pe-7s-like"></i></a>
+                                                            <a href="#" class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a>
+                                                            <a href="compare.html" class="action compare" title="Compare"><i class="pe-7s-refresh-2"></i></a>
                                                         </div>
                                                         <button title="Add To Cart" class=" add-to-cart">Add
                                                             To Cart</button>
@@ -152,8 +139,7 @@
 
                         <!--  Pagination Area Start -->
                         <div class="load-more-items text-center mb-md-60px mb-lm-60px mt-30px0px" data-aos="fade-up">
-                            <a href="#" class="btn btn-lg btn-primary btn-hover-dark m-auto"> Load More <i
-                                    class="fa fa-refresh ml-15px" aria-hidden="true"></i></a>
+                            <a href="#" class="btn btn-lg btn-primary btn-hover-dark m-auto"> Load More <i class="fa fa-refresh ml-15px" aria-hidden="true"></i></a>
                         </div>
                         <!--  Pagination Area End -->
                     </div>
@@ -207,25 +193,25 @@
     <!-- Shop Page End  -->
 
     <!-- Footer Area Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/footer.php';
-?>
+    require_once $path . '/includes/footer.php';
+    ?>
     <!-- Footer Area End -->
 
     <!-- Search Modal Start -->
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/modals.php';
-?>
+    require_once $path . '/includes/modals.php';
+    ?>
     <!-- Modal end -->
 
     <!-- Global Vendor, plugins JS -->
 
-    <?php 
+    <?php
     $path = dirname(__FILE__);
-    require_once $path.'/includes/scripts.php';
-?>
+    require_once $path . '/includes/scripts.php';
+    ?>
 </body>
 
 </html>
