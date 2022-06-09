@@ -1,6 +1,6 @@
 <?php
 $path = dirname(__FILE__);
-require_once $path . '/config/connection.php';
+require_once $path . '/../config/connection.php';
 
 class OrderItem{
     private $conn;
