@@ -20,17 +20,19 @@
 
   <!--start wrapper-->
   <div class="wrapper">
-
+    <!--start sidebar -->
     <?php
     $path = dirname(__FILE__);
     require_once $path . '/includes/sidebar.php';
     ?>
+    <!--end sidebar -->
 
+    <!--start top header-->
     <?php
     $path = dirname(__FILE__);
     require_once $path . '/includes/header.php';
     ?>
-
+    <!--end top header-->
 
     <!-- start page content wrapper-->
     <div class="page-content-wrapper">
@@ -53,50 +55,51 @@
           </div>
         </div>
         <!--end breadcrumb-->
-        <!-- end page content-->
       </div>
-      <!--end page content wrapper-->
-
-
-      <!--start footer-->
-      <?php
-      $path = dirname(__FILE__);
-      require_once $path . '/includes/footer.php';
-      ?>
-
-      <!--end footer-->
-
-
-      <!--Start Back To Top Button-->
-      <a href="javaScript:;" class="back-to-top">
-        <ion-icon name="arrow-up-outline"></ion-icon>
-      </a>
-      <!--End Back To Top Button-->
-
-      <!--start switcher-->
-
-      <?php
-      $path = dirname(__FILE__);
-      require_once $path . '/includes/switcher.php';
-      ?>
-
-      <!--end switcher-->
-
-
-      <!--start overlay-->
-      <div class="overlay nav-toggle-icon"></div>
-      <!--end overlay-->
-
+      <!-- end page content-->
     </div>
-    <!--end wrapper-->
+    <!--end page content wrapper-->
 
 
-    <!-- JS Files-->
+    <!--start footer-->
+    <?php
+    $path = dirname(__FILE__);
+    require_once $path . '/includes/footer.php';
+    ?>
+
+    <!--end footer-->
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:;" class="back-to-top">
+      <ion-icon name="arrow-up-outline"></ion-icon>
+    </a>
+    <!--End Back To Top Button-->
+
+    <!--start switcher-->
 
     <?php
     $path = dirname(__FILE__);
-    require_once $path . '/includes/scripts.php';
+    require_once $path . '/includes/switcher.php';
     ?>
+
+    <!--end switcher-->
+
+
+    <!--start overlay-->
+    <div class="overlay nav-toggle-icon"></div>
+    <!--end overlay-->
+
+  </div>
+  <!--end wrapper-->
+
+
+  <!-- JS Files-->
+
+  <?php
+  $path = dirname(__FILE__);
+  require_once $path . '/includes/scripts.php';
+  ?>
 
 </body>
 

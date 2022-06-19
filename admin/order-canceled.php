@@ -97,7 +97,7 @@ require_once $path . '/../class/customer.php';
                                     $listOrder = $orderModel->getOrders();
                                     if ($listOrder) {
                                         while ($row = $listOrder->fetch_assoc()) {
-                                            if ($row['status'] == '0' || $row['status'] == '1' || $row['status'] == '-1')
+                                            if ($row['status'] == '0' || $row['status'] == '1' || $row['status'] == '2')
                                                 continue;
 
                                     ?>
@@ -110,9 +110,9 @@ require_once $path . '/../class/customer.php';
                                                 <td><?php echo $row['date'] ?></td>
                                                 <td>
                                                     <?php
-                                                    if ($row['status'] == 2) {
+                                                    if ($row['status'] == -1) {
                                                     ?>
-                                                        <div class="badge bg-success">Đã hoàn tất</div>
+                                                        <div class="badge bg-danger">Đã hủy</div>
                                                     <?php
                                                     }
                                                     ?>
@@ -140,8 +140,8 @@ require_once $path . '/../class/customer.php';
                         </div>
                     </div>
                 </div>
+                <!-- end page content-->
             </div>
-            <!-- end page content-->
         </div>
         <!--end page content wrapper-->
 
