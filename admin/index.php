@@ -47,7 +47,7 @@
                     <ion-icon name="home-outline"></ion-icon>
                   </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">eCommerce</li>
+                <!-- <li class="breadcrumb-item active" aria-current="page">eCommerce</li> -->
               </ol>
             </nav>
           </div>
@@ -59,11 +59,11 @@
 
 
       <!--start footer-->
-      <footer class="footer">
-        <div class="footer-text">
-          Copyright © 2021. All right reserved.
-        </div>
-      </footer>
+      <?php
+      $path = dirname(__FILE__);
+      require_once $path . '/includes/footer.php';
+      ?>
+
       <!--end footer-->
 
 

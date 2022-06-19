@@ -46,7 +46,7 @@
       </ul>
     </li>
     <li>
-      <a href="danhmucsp.php">
+      <a href="category.php">
         <div class="parent-icon">
           <i class="bi bi-list-nested"></i>
         </div>
@@ -62,28 +62,28 @@
       </a>
       <ul>
         <li>
-          <a href="order_canceled.php">
+          <a href="order-canceled.php">
             <div class="parent-icon">
             </div>
             <div class="menu-title">Đơn hàng đã hủy</div>
           </a>
         </li>
         <li>
-          <a href="order.php">
+          <a href="order-processing.php">
             <div class="parent-icon">
             </div>
             <div class="menu-title">Đơn hàng đang xử lý</div>
           </a>
         </li>
         <li>
-          <a href="order_processed.php">
+          <a href="order-processed.php">
             <div class="parent-icon">
             </div>
             <div class="menu-title">Đơn hàng đã xử lý</div>
           </a>
         </li>
         <li>
-          <a href="order_completed.php">
+          <a href="order-completed.php">
             <div class="parent-icon">
             </div>
             <div class="menu-title">Đơn hàng đã hoàn tất</div>
@@ -92,7 +92,7 @@
       </ul>
     </li>
     <li>
-      <a href="khachhang.php">
+      <a href="customer.php">
         <div class="parent-icon">
           <i class="bi bi-person-bounding-box"></i>
         </div>
