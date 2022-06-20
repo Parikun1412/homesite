@@ -11,7 +11,7 @@
     require_once $path . '/includes/linkCss.php';
     ?>
 
-    <title>Blackdash - Bootstrap5 Admin Template</title>
+    <title>Quản lý danh mục</title>
 </head>
 
 <body>
@@ -49,7 +49,7 @@
                                         <ion-icon name="home-outline"></ion-icon>
                                     </a>
                                 </li>
-                                <!-- <li class="breadcrumb-item active" aria-current="page">eCommerce</li> -->
+                                <li class="breadcrumb-item active" aria-current="page">Danh mục</li>
                             </ol>
                         </nav>
                     </div>

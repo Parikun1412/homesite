@@ -17,7 +17,7 @@ require_once $path . '/../class/customer.php';
     require_once $path . '/includes/linkCss.php';
     ?>
 
-    <title>Blackdash - Bootstrap5 Admin Template</title>
+    <title>Đơn hàng đã xử lý</title>
 </head>
 
 <body>
@@ -55,7 +55,7 @@ require_once $path . '/../class/customer.php';
                                         <ion-icon name="home-outline"></ion-icon>
                                     </a>
                                 </li>
-                                <!-- <li class="breadcrumb-item active" aria-current="page">eCommerce</li> -->
+                                <li class="breadcrumb-item active" aria-current="page">Đơn hàng đã xử lý</li>
                             </ol>
                         </nav>
                     </div>
