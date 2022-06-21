@@ -20,8 +20,8 @@ class Category{
 
     public function getCategoryById($id_category){
         $id_category = $this->conn->real_escape_string($id_category);
-        $sql = "SELECT * FROM tbl_category WHERE `id_category` = $id_category";
-        $result = $this->conn->query($sql);
+        $sql = "SELECT * FROM tbl_category WHERE `id_category` = '$id_category'";
+        $result = $this->conn->query($sql) or die($this->conn->error);
         if ($result->num_rows > 0) {
             return $result;
         } else {

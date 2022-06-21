@@ -57,19 +57,14 @@
                 <!--end breadcrumb-->
                 <div class="row">
                     <div class="col-xl-12 mx-auto">
-                        <h4 class="mb-0 text-uppercase">Quản lý khuyến mãi</h4>
-                        <!-- start thêm khuyến mãi  -->
-                        <hr />
-                        <button type="button" class="btn btn-primary btn-lg">
-                            Thêm khuyến mãi
-                        </button>
+                        <h4 class="mb-0 text-uppercase">Quản lý đang đăng bán</h4>
                         <hr />
                         <!-- End Form Info -->
 
                         <div class="card radius-10 w-100">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">Recent Orders</h6>
+                                    <h6 class="mb-0">Danh sách sản phẩm</h6>
                                     <div class="fs-5 ms-auto dropdown">
                                         <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></div>
                                         <ul class="dropdown-menu">
@@ -86,11 +81,11 @@
                                     <table class="table align-middle mb-0 table-hover" id="id_voucher">
                                         <thead class="table-light">
                                             <tr>
-                                                <th>#ID</th>
-                                                <th>Code</th>
-                                                <th>Discount percent</th>
-                                                <th>Start Date</th>
-                                                <th>End Date</th>
+                                                <th>#Mã sản phẩm</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Danh mục</th>
+                                                <th>Giá</th>
+                                                <th>Trạng thái</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

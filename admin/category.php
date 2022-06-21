@@ -1,3 +1,8 @@
+<?php
+$path = dirname(__FILE__);
+require_once $path . '/../class/category.php';
+?>
+
 <!doctype html>
 <html lang="en" class="semi-dark">
 
@@ -16,7 +21,9 @@
 
 <body>
 
-
+    <?php
+    $categoryModel = new Category();
+    ?>
 
     <!--start wrapper-->
     <div class="wrapper">
@@ -57,11 +64,10 @@
                 <!--end breadcrumb-->
                 <div class="row">
                     <div class="col-xl-12 mx-auto">
-                        <h4 class="mb-0 text-uppercase">Quản lý khuyến mãi</h4>
-                        <!-- start thêm khuyến mãi  -->
+                        <h4 class="mb-0 text-uppercase">Quản lý danh mục</h4>
                         <hr />
-                        <button type="button" class="btn btn-primary btn-lg">
-                            Thêm khuyến mãi
+                        <button onclick="viewToAdd()" type="button" class="btn btn-primary btn-lg">
+                            Thêm danh mục
                         </button>
                         <hr />
                         <!-- End Form Info -->
@@ -86,36 +92,39 @@
                                     <table class="table align-middle mb-0 table-hover" id="id_voucher">
                                         <thead class="table-light">
                                             <tr>
-                                                <th>#ID</th>
-                                                <th>Code</th>
-                                                <th>Discount percent</th>
-                                                <th>Start Date</th>
-                                                <th>End Date</th>
-                                                <th>Action</th>
+                                                <th>#Mã danh mục</th>
+                                                <th>Tên danh mục</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <a href="javascript:;" class="text-dark">
-                                                            <ion-icon name="eye-sharp"></ion-icon>
-                                                        </a>
-                                                        <a href="javascript:;" class="text-dark">
-                                                            <ion-icon name="pencil-sharp"></ion-icon>
-                                                        </a>
-                                                        <a href="javascript:;" class="text-dark">
-                                                            <ion-icon name="trash-sharp"></ion-icon>
-                                                        </a>
-                                                    </div>
+                                            <?php
+                                            $listCategory = $categoryModel->getCategories();
+                                            if ($listCategory) {
+                                                while ($row = $listCategory->fetch_assoc()) {
+                                            ?>
+                                                    <tr>
+                                                        <td><?php echo $row['id_category'] ?></td>
+                                                        <td><?php echo $row['name'] ?></td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-3 fs-6">
+                                                                <a onclick="viewDetails('<?php print $row['id_category'] ?>')" href="javascript:;" class="text-dark">
+                                                                    <ion-icon name="eye-sharp"></ion-icon>
+                                                                </a>
+                                                                <a onclick="viewToUpdate('<?php print $row['id_category'] ?>')" href="javascript:;" class="text-dark">
+                                                                    <ion-icon name="pencil-sharp"></ion-icon>
+                                                                </a>
+                                                                <a onclick=" confirm('Bạn có muốn xóa không') ? deleteCategory('<?php print($row['id_category']) ?>') : event.preventDefault() " href="javascript:;" class="text-dark">
+                                                                    <ion-icon name="trash-sharp"></ion-icon>
+                                                                </a>
+                                                            </div>
 
-                                                </td>
-                                            </tr>
+                                                        </td>
+                                                    </tr>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -162,14 +171,15 @@
 
     </div>
     <!--end wrapper-->
-
-
+    <div id="switchModal"></div>
+    <div id="processRespone"></div>
     <!-- JS Files-->
 
     <?php
     $path = dirname(__FILE__);
     require_once $path . '/includes/scripts.php';
     ?>
+    <script src="./assets/js/process-ajax/cateogry.js"></script>
 
 </body>
 
