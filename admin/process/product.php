@@ -7,7 +7,6 @@ require_once $path . '/../../class/category.php';
 
 <?php
 if (isset($_POST['viewToAdd'])) {
-    var_dump($_POST);
 ?>
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content ">
@@ -28,7 +27,7 @@ if (isset($_POST['viewToAdd'])) {
                             </div>
                             <div class="col-md-6">
                                 <label for="category" class="form-label">Danh mục</label>
-                                <select name="" id="category" class="form-select">
+                                <select name="category" id="category" class="form-select">
                                     <option value="">Chọn danh mục</option>
                                     <?php
                                     $categoryModel = new Category();
@@ -44,12 +43,12 @@ if (isset($_POST['viewToAdd'])) {
                             </div>
                             <div class="col-md-6">
                                 <label for="validationPrice" class="form-label">Giá bán</label>
-                                <input type="text" class="form-control datepicker" name="startdate" id="validationPrice" />
+                                <input type="text" class="form-control datepicker" name="productPrice" id="validationPrice" />
                                 <div id="txtPrice" class="invalid-feedback">Nhập giá bán</div>
                             </div>
                             <div class="col-md-12">
                                 <label for="validationDescription" class="form-label">Mô tả sản phẩm</label>
-                                <textarea name="productDescription" id="validationDescription" class="form-control" cols="20" rows="5"></textarea>
+                                <textarea name="productDescription" name="productDescription" id="validationDescription" class="form-control" cols="20" rows="5"></textarea>
                                 <div id="txtDescription" class="invalid-feedback">Nhập mô tả</div>
                             </div>
                             <div class="col-md-12">
@@ -76,40 +75,50 @@ if (isset($_POST['viewToAdd'])) {
 
 <?php
 if (isset($_POST['add'])) {
+    $productModel = new Product();
 
-    var_dump($_POST) ;
-    // $_FILES["image"] = $_POST['image'];
-    // echo $_FILES["image"]["size"];
+    $id_product = $_POST['id_product'];
+    $name = $_POST['name'];
+    $id_category = $_POST['id_category'];
+    $price = $_POST['price'];
+    $description = $_POST['description'];
+    $status = 0;
+    //Xử lý ảnh
+    if (!isset($_FILES["image"]))  // kiểm tra ảnh có tồn tại
+    {
+        echo "Không có ảnh";
+        die;
+    }
 
-    // //Xử lý ảnh
-    // if (!isset($_FILES["image"]))  // kiểm tra ảnh có tồn tại
-    // {
-    //     echo "Không có ảnh";
-    //     die;
-    // }
-
-    // //Thư mục upload
-    // $target_dir    = "../uploads/";
-    // $target_file   = $target_dir . basename($_FILES["image"]["name"]);
-    // $allowUpload   = true;
-    // //Lấy phần mở rộng của file (jpg, png, ...)
-    // $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-    // // Cỡ lớn nhất được upload (bytes)
-    // $maxfilesize   = 2097152;
-    // //Những loại file được phép upload
-    // $allowtypes    = array('jpg', 'png');
-    // // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
-    // if ($_FILES["image"]["size"] > $maxfilesize) {
-    //     echo "Không được upload ảnh lớn hơn 2mb.";
-    //     $allowUpload = false;
-    // }
-    // // Kiểm tra kiểu file
-    // if (!in_array($imageFileType, $allowtypes)) {
-    //     echo "Chỉ được upload các định dạng JPG, PNG";
-    //     $allowUpload = false;
-    // }
-    // if ($allowUpload == true) {
-    //     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-    // }
+    //Thư mục upload
+    $target_dir    = "../uploads/";
+    $target_file   = $target_dir . basename($_FILES["image"]["name"]);
+    $allowUpload   = true;
+    //Lấy phần mở rộng của file (jpg, png, ...)
+    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+    // Cỡ lớn nhất được upload (bytes)
+    $maxfilesize   = 2097152;
+    //Những loại file được phép upload
+    $allowtypes    = array('jpg', 'png');
+    // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
+    if ($_FILES["image"]["size"] > $maxfilesize) {
+        echo "Không được upload ảnh lớn hơn 2mb.";
+        $allowUpload = false;
+    }
+    // Kiểm tra kiểu file
+    if (!in_array($imageFileType, $allowtypes)) {
+        echo "Chỉ được upload các định dạng JPG, PNG";
+        $allowUpload = false;
+    }
+    if ($allowUpload == true) {
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+        $addproduct = $productModel->insert($id_product, $id_category, $name, $price, $target_file, $status, $description);
+        if($addproduct){
+            echo '1';
+        }
+        else{
+            echo '<script>alert("Thêm thất bại")</script>';
+        }
+    }
 }
 ?>

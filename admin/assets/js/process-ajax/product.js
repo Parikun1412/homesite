@@ -18,9 +18,18 @@ function add() {
 
     let formData = new FormData();
     let files = $('#file')[0].files[0];
-    let id_product = $('#productID').val();
-    formData.append('file', files);
-    formData.append('productID', id_product);
+    let id_product = $('input[name="productID"]').val();
+    let name = $('input[name="productName"]').val();
+    let id_category = $('select[name="category"] option:selected').val();
+    let price = $('input[name="price"]').val();
+    let description = $('input[name="description"]').val();
+
+    formData.append('image', files);
+    formData.append('id_product', id_product);
+    formData.append('name', name);
+    formData.append('id_category', id_category);
+    formData.append('price', price);
+    formData.append('description', description);
     formData.append('add', true);
     $.ajax({
         url: './process/product.php',
@@ -29,12 +38,14 @@ function add() {
         contentType: false,
         processData: false,
         success: function (respone) {
-            console.log(respone);
-            // if (respone != 0) {
-            //     location.reload()
-            // } else {
+            // if(respone == 1){
+            //     alert('Thêm thành công');
+            //     location.reload();
+            // }
+            // else{
             //     $('#processRespone').html(respone);
             // }
+            console.log(respone);
         }
     })
 }

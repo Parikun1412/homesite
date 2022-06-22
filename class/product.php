@@ -29,16 +29,16 @@ class Product{
         }
     }
 
-    public function insert($id_product, $id_categorychild, $name, $price, $image, $status, $description){
+    public function insert($id_product, $id_category, $name, $price, $image, $status, $description){
         $id_product = $this->conn->real_escape_string($id_product);
-        $id_categorychild = $this->conn->real_escape_string($id_categorychild);
+        $id_category = $this->conn->real_escape_string($id_category);
         $name = $this->conn->real_escape_string($name);
         $price = $this->conn->real_escape_string($price);
         $image = $this->conn->real_escape_string($image);
         $status = $this->conn->real_escape_string($status);
         $description = $this->conn->real_escape_string($description);
-        $sql = "INSERT INTO tbl_product(`id_product`, `id_categorychild`, `name`, `price`, `image`, `status`, `description`) VALUES('$id_product', '$id_categorychild', '$name', '$price', '$image', '$status', '$description')";
-        $result = $this->conn->query($sql);
+        $sql = "INSERT INTO tbl_product(`id_product`, `id_category`, `name`, `price`, `image`, `status`, `description`) VALUES('$id_product', '$id_category', '$name', '$price', '$image', '$status', '$description')";
+        $result = $this->conn->query($sql) or die($this->conn->error);
         if ($result) {
             return $result;
         } else {
@@ -46,15 +46,15 @@ class Product{
         }
     }
 
-    public function update($id_product, $id_categorychild, $name, $price, $image, $status, $description){
+    public function update($id_product, $id_category, $name, $price, $image, $status, $description){
         $id_product = $this->conn->real_escape_string($id_product);
-        $id_categorychild = $this->conn->real_escape_string($id_categorychild);
+        $id_category = $this->conn->real_escape_string($id_category);
         $name = $this->conn->real_escape_string($name);
         $price = $this->conn->real_escape_string($price);
         $image = $this->conn->real_escape_string($image);
         $status = $this->conn->real_escape_string($status);
         $description = $this->conn->real_escape_string($description);
-        $sql = "UPDATE tbl_product SET `id_categorychild` = '$id_categorychild', `name` = '$name', `price` = '$price', `image` = '$image', `status` = '$status', `description` = '$description' WHERE `id_product` = '$id_product'";
+        $sql = "UPDATE tbl_product SET `id_category` = '$id_category', `name` = '$name', `price` = '$price', `image` = '$image', `status` = '$status', `description` = '$description' WHERE `id_product` = '$id_product'";
         $result = $this->conn->query($sql);
         if ($result) {
             return $result;
