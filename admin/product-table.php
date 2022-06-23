@@ -1,3 +1,8 @@
+<?php
+$path = dirname(__FILE__);
+require_once $path . '/../class/product.php';
+?>
+
 <!doctype html>
 <html lang="en" class="semi-dark">
 
@@ -16,6 +21,9 @@
 
 <body>
 
+    <?php
+    $productModel = new Product();
+    ?>
 
 
     <!--start wrapper-->
@@ -94,36 +102,46 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3">
-                                                        <div class="product-box border">
-                                                            <img src="" alt="">
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h6 class="product-name mb-1"></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <a href="javascript:;" class="text-dark">
-                                                            <ion-icon name="eye-sharp"></ion-icon>
-                                                        </a>
-                                                        <a href="javascript:;" class="text-dark">
-                                                            <ion-icon name="pencil-sharp"></ion-icon>
-                                                        </a>
-                                                        <a href="javascript:;" class="text-dark">
-                                                            <ion-icon name="trash-sharp"></ion-icon>
-                                                        </a>
-                                                    </div>
+                                            <?php
+                                            $products = $productModel->getProducts();
+                                            if ($products) {
+                                                while ($row = $products->fetch_assoc()) {
+                                            ?>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-3">
+                                                                <div class="product-box border">
+                                                                    <img src="<?php echo $row['image'] ?>" width="100%" alt="">
+                                                                </div>
+                                                                <div class="product-info">
+                                                                    <h6 class="product-name mb-1"></h6>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-3 fs-6">
+                                                                <a href="javascript:;" class="text-dark">
+                                                                    <ion-icon name="eye-sharp"></ion-icon>
+                                                                </a>
+                                                                <a href="javascript:;" class="text-dark">
+                                                                    <ion-icon name="pencil-sharp"></ion-icon>
+                                                                </a>
+                                                                <a href="javascript:;" class="text-dark">
+                                                                    <ion-icon name="trash-sharp"></ion-icon>
+                                                                </a>
+                                                            </div>
 
-                                                </td>
-                                            </tr>
+                                                        </td>
+                                                    </tr>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+
                                         </tbody>
                                     </table>
                                 </div>

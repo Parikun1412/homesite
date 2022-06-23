@@ -22,7 +22,8 @@ function add() {
     let name = $('input[name="productName"]').val();
     let id_category = $('select[name="category"] option:selected').val();
     let price = $('input[name="price"]').val();
-    let description = $('input[name="description"]').val();
+    let description = $('textarea[name="productDescription"]').val();
+
 
     formData.append('image', files);
     formData.append('id_product', id_product);

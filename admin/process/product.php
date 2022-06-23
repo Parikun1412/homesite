@@ -48,7 +48,7 @@ if (isset($_POST['viewToAdd'])) {
                             </div>
                             <div class="col-md-12">
                                 <label for="validationDescription" class="form-label">Mô tả sản phẩm</label>
-                                <textarea name="productDescription" name="productDescription" id="validationDescription" class="form-control" cols="20" rows="5"></textarea>
+                                <textarea name="productDescription" id="validationDescription" class="form-control" cols="20" rows="5"></textarea>
                                 <div id="txtDescription" class="invalid-feedback">Nhập mô tả</div>
                             </div>
                             <div class="col-md-12">
@@ -82,6 +82,7 @@ if (isset($_POST['add'])) {
     $id_category = $_POST['id_category'];
     $price = $_POST['price'];
     $description = $_POST['description'];
+
     $status = 0;
     //Xử lý ảnh
     if (!isset($_FILES["image"]))  // kiểm tra ảnh có tồn tại
@@ -93,6 +94,7 @@ if (isset($_POST['add'])) {
     //Thư mục upload
     $target_dir    = "../uploads/";
     $target_file   = $target_dir . basename($_FILES["image"]["name"]);
+    $image = "./uploads/".basename($_FILES["image"]["name"]);
     $allowUpload   = true;
     //Lấy phần mở rộng của file (jpg, png, ...)
     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -112,7 +114,7 @@ if (isset($_POST['add'])) {
     }
     if ($allowUpload == true) {
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-        $addproduct = $productModel->insert($id_product, $id_category, $name, $price, $target_file, $status, $description);
+        $addproduct = $productModel->insert($id_product, $id_category, $name, $price, $image, $status, $description);
         if($addproduct){
             echo '1';
         }
