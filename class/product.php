@@ -20,7 +20,7 @@ class Product{
 
     public function getProductById($id_product){
         $id_product = $this->conn->real_escape_string($id_product);
-        $sql = "SELECT * FROM tbl_product WHERE `id_product` = $id_product";
+        $sql = "SELECT * FROM tbl_product WHERE `id_product` = '$id_product'";
         $result = $this->conn->query($sql);
         if ($result->num_rows > 0) {
             return $result;

@@ -3,6 +3,8 @@ $path = dirname(__FILE__);
 require_once $path . '/../../class/product.php';
 $path = dirname(__FILE__);
 require_once $path . '/../../class/category.php';
+
+$productModel = new Product();
 ?>
 
 <?php
@@ -43,7 +45,7 @@ if (isset($_POST['viewToAdd'])) {
                             </div>
                             <div class="col-md-6">
                                 <label for="validationPrice" class="form-label">Giá bán</label>
-                                <input type="text" class="form-control datepicker" name="productPrice" id="validationPrice" />
+                                <input type="text" class="form-control datepicker" name="productPrice" value="" id="validationPrice" />
                                 <div id="txtPrice" class="invalid-feedback">Nhập giá bán</div>
                             </div>
                             <div class="col-md-12">
@@ -94,7 +96,7 @@ if (isset($_POST['add'])) {
     //Thư mục upload
     $target_dir    = "../uploads/";
     $target_file   = $target_dir . basename($_FILES["image"]["name"]);
-    $image = "./uploads/".basename($_FILES["image"]["name"]);
+    $image = "./uploads/" . basename($_FILES["image"]["name"]);
     $allowUpload   = true;
     //Lấy phần mở rộng của file (jpg, png, ...)
     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -115,12 +117,75 @@ if (isset($_POST['add'])) {
     if ($allowUpload == true) {
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
         $addproduct = $productModel->insert($id_product, $id_category, $name, $price, $image, $status, $description);
-        if($addproduct){
+        if ($addproduct) {
             echo '1';
-        }
-        else{
+        } else {
             echo '<script>alert("Thêm thất bại")</script>';
         }
     }
+}
+?>
+
+<?php
+if (isset($_POST['view']) && isset($_POST['id_product'])) {
+    $id_product = $_POST['id_product'];
+    echo 'askda';
+    $productByID = $productModel->getProductById($id_product)->fetch_assoc();
+?>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="mb-0">Thông tin sản phẩm</h6>
+                    <div class="p-4 border rounded">
+                        <form class="row g-3 needs-validation" id="updateForm" method="POST" enctype="multipart/form-data" onsubmit="add()">
+                            <div class="col-md-6">
+                                <label for="productName" class="form-label">Mã sản phẩm</label>
+                                <input type="text" class="form-control" id="productID" name="productID" value="<?php echo $productByID['id_product'] ?>" name="voucherId" readonly>
+                                <div id="txtProductId" class="invalid-feedback">Nhập mã SP</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="productName" class="form-label">Tên sản phẩm</label>
+                                <input type="text" class="form-control" id="productName" value="<?php echo $productByID['name'] ?>" name="productName">
+                                <div id="txtProductName" class="invalid-feedback">Nhập tên SP</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="category" class="form-label">Danh mục</label>
+                                <?php
+                                $categoryModel = new Category();
+                                $id_category = $productByID['id_category'];
+                                $categoryByID = $categoryModel->getCategoryById($id_category);
+                                
+                                ?>
+                                <input type="text" class="form-control" id="category" name="category" value="<?php echo $productByID['name'] ?>">
+
+                                </select>
+                                <div id="slCateogory" class="invalid-feedback">Chọn Danh mục</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationPrice" class="form-label">Giá bán</label>
+                                <input type="text" class="form-control datepicker" name="productPrice" value="<?php echo $productByID['price'] ?>" id="validationPrice" />
+                                <div id="txtPrice" class="invalid-feedback">Nhập giá bán</div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="validationDescription" class="form-label">Mô tả sản phẩm</label>
+                                <textarea name="productDescription" id="validationDescription" class="form-control" cols="20" rows="5"></textarea>
+                                <div id="txtDescription" class="invalid-feedback">Nhập mô tả</div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Hình ảnh</label>
+                                <img src="<?php echo '.' . $productByID['image'] ?>" alt="">
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Thêm</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php
 }
 ?>

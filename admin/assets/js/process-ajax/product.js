@@ -39,14 +39,31 @@ function add() {
         contentType: false,
         processData: false,
         success: function (respone) {
-            // if(respone == 1){
-            //     alert('Thêm thành công');
-            //     location.reload();
-            // }
-            // else{
-            //     $('#processRespone').html(respone);
-            // }
-            console.log(respone);
+            if (respone == 1) {
+                alert('Thêm thành công');
+                location.reload();
+            }
+            else {
+                $('#processRespone').html(respone);
+            }
+            // console.log(respone);
         }
+    })
+}
+
+function viewDetails(id_product) {
+    event.preventDefault();
+    $.ajax({
+        url: './process/product.php',
+        type: 'POST',
+        data: {
+            view: true,
+            id_product: id_product,
+        },
+        success: function (data) {
+            // $('#switchModal').html($('<div class="modal fade" id="exampleLargeModal" tabindex="-1" aria-hidden="true">' + data + ' <div>').modal());
+            console.log(data);
+        }
+
     })
 }

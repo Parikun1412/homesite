@@ -1,6 +1,8 @@
 <?php
 $path = dirname(__FILE__);
 require_once $path . '/../class/product.php';
+$path = dirname(__FILE__);
+require_once $path . '/../class/category.php';
 ?>
 
 <!doctype html>
@@ -106,25 +108,41 @@ require_once $path . '/../class/product.php';
                                             $products = $productModel->getProducts();
                                             if ($products) {
                                                 while ($row = $products->fetch_assoc()) {
+                                                    if ($row['status'] != 0)
+                                                        continue;
                                             ?>
                                                     <tr>
-                                                        <td></td>
+                                                        <td><?php echo $row['id_product'] ?></td>
                                                         <td>
                                                             <div class="d-flex align-items-center gap-3">
                                                                 <div class="product-box border">
                                                                     <img src="<?php echo $row['image'] ?>" width="100%" alt="">
                                                                 </div>
                                                                 <div class="product-info">
-                                                                    <h6 class="product-name mb-1"></h6>
+                                                                    <h6 class="product-name mb-1"><?php echo $row['name'] ?></h6>
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>
+                                                            <?php
+                                                            $categoryModel = new Category();
+                                                            $categoryByID = $categoryModel->getCategoryById($row['id_category'])->fetch_array();
+                                                            echo $categoryByID['name'];
+                                                            ?>
+                                                        </td>
+                                                        <td><?php echo $row['price'] ?></td>
+                                                        <td>
+                                                            <?php
+                                                            if ($row['status'] == '0') {
+                                                            ?>
+                                                                <div class="badge bg-danger">Chưa đăng bán</div>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex align-items-center gap-3 fs-6">
-                                                                <a href="javascript:;" class="text-dark">
+                                                                <a onclick="viewDetails('<?php echo $row['id_product'] ?>')" href="javascript:;" class="text-dark">
                                                                     <ion-icon name="eye-sharp"></ion-icon>
                                                                 </a>
                                                                 <a href="javascript:;" class="text-dark">
