@@ -35,9 +35,6 @@
                             </a>
                             <!-- Single Wedge End -->
                             <!-- Single Wedge Start -->
-                            <a href="#offcanvas-wishlist" class="header-action-btn offcanvas-toggle">
-                                <i class="pe-7s-like"></i>
-                            </a>
                             <!-- Single Wedge End -->
                             <a href="#offcanvas-cart" class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                                 <i class="pe-7s-shopbag"></i>

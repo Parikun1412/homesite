@@ -116,7 +116,7 @@ require_once $path . '/../class/category.php';
                                                         <td>
                                                             <div class="d-flex align-items-center gap-3">
                                                                 <div class="product-box border">
-                                                                    <img src="<?php echo $row['image'] ?>" width="100%" alt="">
+                                                                    <img src="<?php echo '.' . $row['image'] ?>" width="100%" alt="">
                                                                 </div>
                                                                 <div class="product-info">
                                                                     <h6 class="product-name mb-1"><?php echo $row['name'] ?></h6>
@@ -145,12 +145,12 @@ require_once $path . '/../class/category.php';
                                                                 <a onclick="viewDetails('<?php echo $row['id_product'] ?>')" href="javascript:;" class="text-dark">
                                                                     <ion-icon name="eye-sharp"></ion-icon>
                                                                 </a>
-                                                                <a href="javascript:;" class="text-dark">
+                                                                <a onclick="viewToUpdate('<?php echo $row['id_product'] ?>')" href="javascript:;" class="text-dark">
                                                                     <ion-icon name="pencil-sharp"></ion-icon>
                                                                 </a>
-                                                                <a href="javascript:;" class="text-dark">
+                                                                <!-- <a href="javascript:;" class="text-dark">
                                                                     <ion-icon name="trash-sharp"></ion-icon>
-                                                                </a>
+                                                                </a> -->
                                                             </div>
 
                                                         </td>

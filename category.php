@@ -1,3 +1,10 @@
+<?php
+$path = dirname(__FILE__);
+require_once $path . '/class/category.php';
+$path = dirname(__FILE__);
+require_once $path . '/class/product.php';
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -55,7 +62,7 @@
                     <!-- Shop Top Area Start -->
                     <div class="shop-top-bar d-flex">
                         <!-- Left Side start -->
-                        <p><span>12</span> Product Found of <span>30</span></p>
+                        <p> Đã tìm thấy <span>12</span> trong <span>30</span></p>
                         <!-- Left Side End -->
                         <div class="shop-tab nav">
                             <a class="active" href="#shop-grid" data-bs-toggle="tab">
@@ -94,42 +101,53 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="shop-grid">
                                         <div class="row mb-n-30px">
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up" data-aos-delay="200">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/1.jpg" alt="Product" />
-                                                            <img class="hover-image" src="assets/images/product-image/1.jpg" alt="Product" />
-                                                        </a>
-                                                        <span class="badges">
-                                                            <span class="new">New</span>
-                                                        </span>
-                                                        <div class="actions">
-                                                            <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="pe-7s-like"></i></a>
-                                                            <a href="#" class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a>
-                                                            <a href="compare.html" class="action compare" title="Compare"><i class="pe-7s-refresh-2"></i></a>
+                                            <?php
+                                            $productModel = new Product();
+                                            $products = $productModel->getProducts();
+                                            if ($products) {
+                                                while ($row  = $products->fetch_assoc()) {
+                                                    if ($row['status'] != 1)
+                                                        continue;
+                                            ?>
+                                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up" data-aos-delay="200">
+                                                        <!-- Single Prodect -->
+                                                        <div class="product">
+                                                            <div class="thumb">
+                                                                <a href="product.php?id_product=<?php echo $row['id_product'] ?>" class="image">
+                                                                    <img src="<?php echo $row['image'] ?>" alt="Product" />
+                                                                    <img class="hover-image" src="<?php echo $row['image'] ?>" alt="Product" />
+                                                                </a>
+                                                                <!-- <span class="badges">
+                                                                    <span class="new">New</span>
+                                                                </span> -->
+                                                                <!-- <div class="actions">
+                                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="pe-7s-like"></i></a>
+                                                                    <a href="#" class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a>
+                                                                    <a href="compare.html" class="action compare" title="Compare"><i class="pe-7s-refresh-2"></i></a>
+                                                                </div> -->
+                                                                <button title="Add To Cart" class=" add-to-cart">Thêm vào giỏ hàng</button>
+                                                            </div>
+                                                            <div class="content">
+                                                                <!-- <span class="ratings">
+                                                                    <span class="rating-wrap">
+                                                                        <span class="star" style="width: 100%"></span>
+                                                                    </span>
+                                                                    <span class="rating-num">( 5 Review )</span>
+                                                                </span> -->
+                                                                <h5 class="title"><a href="product.php?id_product=<?php echo $row['id_product'] ?>"><?php echo $row['name'] ?>
+                                                                    </a>
+                                                                </h5>
+                                                                <span class="price">
+                                                                    <span class="new"><?php echo $row['price'] ?></span>
+                                                                </span>
+                                                            </div>
                                                         </div>
-                                                        <button title="Add To Cart" class=" add-to-cart">Add
-                                                            To Cart</button>
                                                     </div>
-                                                    <div class="content">
-                                                        <span class="ratings">
-                                                            <span class="rating-wrap">
-                                                                <span class="star" style="width: 100%"></span>
-                                                            </span>
-                                                            <span class="rating-num">( 5 Review )</span>
-                                                        </span>
-                                                        <h5 class="title"><a href="single-product.html">Women's
-                                                                Elizabeth Coat
-                                                            </a>
-                                                        </h5>
-                                                        <span class="price">
-                                                            <span class="new">$38.50</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+
                                         </div>
                                     </div>
                                 </div>
@@ -151,37 +169,28 @@
                         <!-- Sidebar single item -->
                         <div class="sidebar-widget-search">
                             <form id="widgets-searchbox" action="#">
-                                <input class="input-field" type="text" placeholder="Search">
+                                <input class="input-field" type="text" placeholder="Tìm kiếm">
                                 <button class="widgets-searchbox-btn" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </form>
                         </div>
                         <div class="sidebar-widget">
-                            <h4 class="sidebar-title">Category</h4>
+                            <h4 class="sidebar-title">Danh mục</h4>
                             <div class="sidebar-widget-category">
                                 <ul>
-                                    <li><a href="#" class="selected m-0">Accesasories <span>(6)</span> </a></li>
-                                    <li><a href="#" class="">Computer <span>(4)</span> </a></li>
-                                    <li><a href="#" class="">Covid-19 <span>(2)</span> </a></li>
-                                    <li><a href="#" class="">Electronics <span>(6)</span> </a></li>
-                                    <li><a href="#" class="">Frame Sunglasses <span>(12)</span> </a></li>
-                                    <li><a href="#" class="">Furniture <span>(7)</span> </a></li>
-                                    <li><a href="#" class="">Genuine Leather <span>(9)</span> </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Sidebar single item -->
-                        <div class="sidebar-widget tag">
-                            <h4 class="sidebar-title">Tags</h4>
-                            <div class="sidebar-widget-tag">
-                                <ul>
-                                    <li><a href="#">Fashion</a></li>
-                                    <li><a href="#">Organic</a></li>
-                                    <li><a href="#">Old Fashion</a></li>
-                                    <li><a href="#">Men</a></li>
-                                    <li><a href="#">Fashion</a></li>
-                                    <li><a href="#">Dress</a></li>
+                                    <?php
+                                    $categoryModel = new Category();
+                                    $categoris = $categoryModel->getCategories();
+                                    if ($categoris) {
+                                        while ($rowCate = $categoris->fetch_assoc()) {
+                                    ?>
+                                            <li><a href="#" class="selected m-0"><?php echo $rowCate['name'] ?> </a></li>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+
                                 </ul>
                             </div>
                         </div>

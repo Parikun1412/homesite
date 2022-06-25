@@ -1,3 +1,8 @@
+<?php
+$path = dirname(__FILE__);
+require_once $path . '/class/product.php';
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -130,51 +135,7 @@
     <!-- Hero/Intro Slider End -->
     <br><br><br>
 
-    <!-- Feature Area Srart -->
-    <div class="feature-area pb-100px">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6  ">
-                    <!-- single item -->
-                    <div class="single-feature">
-                        <div class="feature-icon">
-                            <img src="assets/images/icons/1.png" alt="">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="title">Free Shipping</h4>
-                            <span class="sub-title">Capped at $39 per order</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- single item -->
-                <div class="col-lg-4 col-md-6 mb-md-30px mb-lm-30px mt-lm-30px">
-                    <div class="single-feature">
-                        <div class="feature-icon">
-                            <img src="assets/images/icons/2.png" alt="">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="title">Card Payments</h4>
-                            <span class="sub-title">12 Months Installments</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- single item -->
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="single-feature">
-                        <div class="feature-icon">
-                            <img src="assets/images/icons/3.png" alt="">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="title">Easy Returns</h4>
-                            <span class="sub-title">Shop With Confidence</span>
-                        </div>
-                    </div>
-                    <!-- single item -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Feature Area End -->
+
 
     <!-- Product Area Start -->
     <div class="product-area">
@@ -213,39 +174,46 @@
                         <!-- 1st tab start -->
                         <div class="tab-pane fade show active">
                             <div class="row">
-                                <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up" data-aos-delay="200">
-                                    <!-- Single Prodect -->
-                                    <div class="product">
-                                        <div class="thumb">
-                                            <a href="product.php" class="image">
-                                                <img src="assets/images/product-image/1.jpg" alt="Product" />
-                                                <img class="hover-image" src="assets/images/product-image/2.jpg" alt="Product" />
-                                            </a>
-                                            <span class="badges">
-                                                <span class="new">New</span>
-                                            </span>
-                                            <div class="actions">
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="pe-7s-like"></i></a>
+                                <?php
+                                $productModel = new Product();
+                                $products = $productModel->getProducts();
+                                if ($products) {
+                                    while ($row = $products->fetch_assoc()) {
+                                        if ($row['status'] != 1)
+                                            continue;
+                                ?>
+                                        <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up" data-aos-delay="200">
+                                            <!-- Single Prodect -->
+                                            <div class="product">
+                                                <div class="thumb">
+                                                    <a href="product.php?id_product=<?php echo $row['id_product'] ?>" class="image">
+                                                        <img src="<?php echo $row['image'] ?>" alt="Product" />
+                                                        <img class="hover-image" src="<?php echo $row['image'] ?>" alt="Product" />
+                                                    </a>
+                                                    <!-- <span class="badges">
+                                                        <span class="new">New</span>
+                                                    </span> -->
+                                                    <button title="Add To Cart" class=" add-to-cart">Thêm vào giỏ hàng</button>
+                                                </div>
+                                                <div class="content">
+                                                    <!-- <span class="ratings">
+                                                        <span class="rating-wrap">
+                                                            <span class="star" style="width: 100%"></span>
+                                                        </span>
+                                                        <span class="rating-num">( 5 Review )</span>
+                                                    </span> -->
+                                                    <h5 class="title"><a href="product.php?id_product=<?php echo $row['id_product'] ?>"><?php echo $row['name'] ?></a>
+                                                    </h5>
+                                                    <span class="price">
+                                                        <span class="new"><?php echo $row['price'] ?> đ</span>
+                                                    </span>
+                                                </div>
                                             </div>
-                                            <button title="Add To Cart" class=" add-to-cart">Add
-                                                To Cart</button>
                                         </div>
-                                        <div class="content">
-                                            <span class="ratings">
-                                                <span class="rating-wrap">
-                                                    <span class="star" style="width: 100%"></span>
-                                                </span>
-                                                <span class="rating-num">( 5 Review )</span>
-                                            </span>
-                                            <h5 class="title"><a href="product.php">Women's Elizabeth Coat
-                                                </a>
-                                            </h5>
-                                            <span class="price">
-                                                <span class="new">$38.50</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -283,158 +251,9 @@
         </div>
     </div> -->
     <!-- Deal Area End -->
-
-    <!-- Testimonial Area Start -->
-    <div class="testimonial-area pb-40px">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title text-center mb-0">
-                        <h2 class="title line-height-1">#testimonials</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- Slider Start -->
-            <div class="testimonial-wrapper swiper-container">
-                <div class="swiper-wrapper">
-                    <!-- Slider Single Item -->
-                    <div class="swiper-slide">
-                        <div class="testi-inner">
-                            <div class="reating-wrap">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <div class="testi-content">
-                                <p>Lorem ipsum dolor sit amet, consect adipisici elit, sed do eiusmod tempol incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniamfhq nostrud exercitation.
-                                </p>
-                            </div>
-                            <div class="testi-author">
-                                <div class="author-img">
-                                    <img src="assets/images/testimonial-image/1.png" alt="">
-                                </div>
-                                <div class="author-name">
-                                    <h4 class="name">Daisy Morgan</h4>
-                                    <span class="title">Happy Customer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slider Single Item -->
-                    <div class="swiper-slide">
-                        <div class="testi-inner">
-                            <div class="reating-wrap">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <div class="testi-content">
-                                <p>Lorem ipsum dolor sit amet, consect adipisici elit, sed do eiusmod tempol incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniamfhq nostrud exercitation.
-                                </p>
-                            </div>
-                            <div class="testi-author">
-                                <div class="author-img">
-                                    <img src="assets/images/testimonial-image/2.png" alt="">
-                                </div>
-                                <div class="author-name">
-                                    <h4 class="name">Leah Chatman</h4>
-                                    <span class="title">Happy Customer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slider Single Item -->
-                    <div class="swiper-slide">
-                        <div class="testi-inner">
-                            <div class="reating-wrap">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <div class="testi-content">
-                                <p>Lorem ipsum dolor sit amet, consect adipisici elit, sed do eiusmod tempol incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniamfhq nostrud exercitation.
-                                </p>
-                            </div>
-                            <div class="testi-author">
-                                <div class="author-img">
-                                    <img src="assets/images/testimonial-image/3.png" alt="">
-                                </div>
-                                <div class="author-name">
-                                    <h4 class="name">Reyna Chung</h4>
-                                    <span class="title">Happy Customer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slider Single Item -->
-                    <div class="swiper-slide">
-                        <div class="testi-inner">
-                            <div class="reating-wrap">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <div class="testi-content">
-                                <p>Lorem ipsum dolor sit amet, consect adipisici elit, sed do eiusmod tempol incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniamfhq nostrud exercitation.
-                                </p>
-                            </div>
-                            <div class="testi-author">
-                                <div class="author-img">
-                                    <img src="assets/images/testimonial-image/1.png" alt="">
-                                </div>
-                                <div class="author-name">
-                                    <h4 class="name">Daisy Morgan</h4>
-                                    <span class="title">Happy Customer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slider Single Item -->
-                    <div class="swiper-slide">
-                        <div class="testi-inner">
-                            <div class="reating-wrap">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <div class="testi-content">
-                                <p>Lorem ipsum dolor sit amet, consect adipisici elit, sed do eiusmod tempol incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniamfhq nostrud exercitation.
-                                </p>
-                            </div>
-                            <div class="testi-author">
-                                <div class="author-img">
-                                    <img src="assets/images/testimonial-image/2.png" alt="">
-                                </div>
-                                <div class="author-name">
-                                    <h4 class="name">Reyna Chung</h4>
-                                    <span class="title">Happy Customer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slider Single Item -->
-                </div>
-            </div>
-            <!-- Slider Start -->
-        </div>
-    </div>
-    <!-- Testimonial Area End -->
-
+    <br><br>
+    <hr>
+    <br><br>
     <!-- Feature Area Srart -->
     <div class="feature-area pb-100px">
         <div class="container">

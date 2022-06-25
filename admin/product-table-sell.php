@@ -1,3 +1,10 @@
+<?php
+$path = dirname(__FILE__);
+require_once $path . '/../class/product.php';
+$path = dirname(__FILE__);
+require_once $path . '/../class/category.php';
+?>
+
 <!doctype html>
 <html lang="en" class="semi-dark">
 
@@ -11,11 +18,14 @@
     require_once $path . '/includes/linkCss.php';
     ?>
 
-    <title>Sản phẩm đang đăng bán</title>
+    <title>Sản phẩm chưa đăng bán</title>
 </head>
 
 <body>
 
+    <?php
+    $productModel = new Product();
+    ?>
 
 
     <!--start wrapper-->
@@ -49,7 +59,7 @@
                                         <ion-icon name="home-outline"></ion-icon>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Sản phẩm đang đăng bán</li>
+                                <li class="breadcrumb-item active" aria-current="page">Sản phẩm chưa đăng bán</li>
                             </ol>
                         </nav>
                     </div>
@@ -57,8 +67,12 @@
                 <!--end breadcrumb-->
                 <div class="row">
                     <div class="col-xl-12 mx-auto">
-                        <h4 class="mb-0 text-uppercase">Quản lý đang đăng bán</h4>
+                        <h4 class="mb-0 text-uppercase">Quản lý sản phẩm chưa đăng bán</h4>
                         <hr />
+                        <!-- <button onclick="viewToAdd()" type="button" class="btn btn-primary btn-lg">
+                            Thêm sản phẩm
+                        </button> -->
+                        <!-- <hr /> -->
                         <!-- End Form Info -->
 
                         <div class="card radius-10 w-100">
@@ -84,42 +98,79 @@
                                                 <th>#Mã sản phẩm</th>
                                                 <th>Tên sản phẩm</th>
                                                 <th>Danh mục</th>
-                                                <th>Giá</th>
+                                                <th>Giá bán</th>
                                                 <th>Trạng thái</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <a href="javascript:;" class="text-dark">
-                                                            <ion-icon name="eye-sharp"></ion-icon>
-                                                        </a>
-                                                        <a href="javascript:;" class="text-dark">
-                                                            <ion-icon name="pencil-sharp"></ion-icon>
-                                                        </a>
-                                                        <a href="javascript:;" class="text-dark">
-                                                            <ion-icon name="trash-sharp"></ion-icon>
-                                                        </a>
-                                                    </div>
+                                            <?php
+                                            $products = $productModel->getProducts();
+                                            if ($products) {
+                                                while ($row = $products->fetch_assoc()) {
+                                                    if ($row['status'] == 0)
+                                                        continue;
+                                            ?>
+                                                    <tr>
+                                                        <td><?php echo $row['id_product'] ?></td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-3">
+                                                                <div class="product-box border">
+                                                                    <img src="<?php echo '.' . $row['image'] ?>" width="100%" alt="">
+                                                                </div>
+                                                                <div class="product-info">
+                                                                    <h6 class="product-name mb-1"><?php echo $row['name'] ?></h6>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                            $categoryModel = new Category();
+                                                            $categoryByID = $categoryModel->getCategoryById($row['id_category'])->fetch_array();
+                                                            echo $categoryByID['name'];
+                                                            ?>
+                                                        </td>
+                                                        <td><?php echo $row['price'] ?></td>
+                                                        <td>
+                                                            <?php
+                                                            if ($row['status'] == '1') {
+                                                            ?>
+                                                                <div class="badge bg-primary">Đang đăng bán</div>
+                                                            <?php
+                                                            } else if ($row['status'] == '2') {
+                                                            ?>
+                                                                <div class="badge bg-danger">Đã hủy đăng bán</div>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-3 fs-6">
+                                                                <a onclick="viewDetails('<?php echo $row['id_product'] ?>')" href="javascript:;" class="text-dark">
+                                                                    <ion-icon name="eye-sharp"></ion-icon>
+                                                                </a>
+                                                                <a onclick="viewToUpdate('<?php echo $row['id_product'] ?>')" href="javascript:;" class="text-dark">
+                                                                    <ion-icon name="pencil-sharp"></ion-icon>
+                                                                </a>
+                                                                <!-- <a href="javascript:;" class="text-dark">
+                                                                    <ion-icon name="trash-sharp"></ion-icon>
+                                                                </a> -->
+                                                            </div>
 
-                                                </td>
-                                            </tr>
+                                                        </td>
+                                                    </tr>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end page content-->
                 </div>
-                <!--end page content wrapper-->
             </div>
             <!-- end page content-->
         </div>
@@ -157,14 +208,16 @@
 
     </div>
     <!--end wrapper-->
-
-
+    <div id="switchModal"></div>
+    <div id="processRespone"></div>
     <!-- JS Files-->
 
     <?php
     $path = dirname(__FILE__);
     require_once $path . '/includes/scripts.php';
     ?>
+    <script src="./assets/js/process-ajax/product.js"></script>
+
 
 </body>
 
