@@ -119,7 +119,7 @@ require_once $path . '/../class/customer.php';
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <a href="javascript:;" class="text-dark" onclick="viewDetails('<?php print $row['id_order'] ?>')" data-toggle="modal" data-target="#viewDetailModalId">
+                                                        <a href="javascript:;" class="text-dark" onclick="viewToProcess('<?php print $row['id_order'] ?>')" data-toggle="modal" data-target="#viewDetailModalId">
                                                             <ion-icon name="eye-sharp"></ion-icon>
                                                         </a>
                                                         <!-- <a href="javascript:;" class="text-dark" data-toggle="modal" data-target="#updateModalId">
@@ -177,7 +177,7 @@ require_once $path . '/../class/customer.php';
 
     </div>
     <!--end wrapper-->
-<div id="switchModal"></div>
+    <div id="switchModal"></div>
 
     <!-- JS Files-->
 
