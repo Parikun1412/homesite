@@ -1,8 +1,15 @@
 <?php
 $path = dirname(__FILE__);
 require_once $path . '/class/product.php';
-?>
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -205,7 +212,7 @@ require_once $path . '/class/product.php';
                                                     <h5 class="title"><a href="product.php?id_product=<?php echo $row['id_product'] ?>"><?php echo $row['name'] ?></a>
                                                     </h5>
                                                     <span class="price">
-                                                        <span class="new"><?php echo $row['price'] ?> đ</span>
+                                                        <span class="new"><?php echo number_format($row['price']) ?> đ</span>
                                                     </span>
                                                 </div>
                                             </div>

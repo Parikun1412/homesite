@@ -3,6 +3,14 @@ $path = dirname(__FILE__);
 require_once $path . '/class/product.php';
 $path = dirname(__FILE__);
 require_once $path . '/class/category.php';
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +32,6 @@ require_once $path . '/class/category.php';
 </head>
 
 <body>
-
     <!-- Header Area Start -->
     <?php
     $path = dirname(__FILE__);
@@ -80,7 +87,7 @@ require_once $path . '/class/category.php';
                             <h2><?php echo $productByID['name'] ?></h2>
                             <div class="pricing-meta">
                                 <ul>
-                                    <li class="old-price not-cut"><?php echo $productByID['price'] ?> đ</li>
+                                    <li class="old-price not-cut"><?php echo number_format($productByID['price']) ?> đ</li>
                                 </ul>
                             </div>
                             <!-- Sidebar single item -->
@@ -92,7 +99,9 @@ require_once $path . '/class/category.php';
                                     </li>
                                 </ul>
                             </div>
-                            <br><br><br>
+                            <p>
+                                Sau khi "Thêm vào Giỏ hàng" và "Đặt hàng" chúng tôi sẽ gọi điện thoại tư vấn cho bạn!!
+                            </p>
                             <div class="pro-details-sku-info pro-details-same-style  d-flex">
                                 <span>Sản phẩm: </span>
                                 <ul class="d-flex">
@@ -119,7 +128,7 @@ require_once $path . '/class/category.php';
                             </div>
                             <div class="pro-details-quality">
                                 <div class="pro-details-cart">
-                                    <button class="add-cart" href="#">Thêm vào giỏ hàng</button>
+                                    <button onclick="addToCart('<?php echo $productByID['id_product'] ?>')" class="add-cart" href="#">Thêm vào giỏ hàng</button>
                                 </div>
                             </div>
                         </div>
@@ -142,18 +151,7 @@ require_once $path . '/class/category.php';
                         <div id="des-details1" class="tab-pane active">
                             <div class="product-description-wrapper">
                                 <p>
-
-                                    Lorem ipsum dolor sit amet, consectetur adipisi elit, incididunt ut labore et. Ut enim
-                                    ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commol
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                                    qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste
-                                    natus error sit voluptatem accusantiulo doloremque laudantium, totam rem aperiam, eaque
-                                    ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                                    explicabo. Nemo enim ipsam voluptat quia voluptas sit aspernatur aut odit aut fugit, sed
-                                    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-                                    quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                                    quia non numquam eius modi tempora incidunt ut labore
+                                    <?php echo $productByID['description'] ?>
 
                                 </p>
                             </div>
@@ -431,6 +429,7 @@ require_once $path . '/class/category.php';
     $path = dirname(__FILE__);
     require_once $path . '/includes/scripts.php';
     ?>
+    <script src="./assets/js/process-ajax/product.js"></script>
 </body>
 
 </html>

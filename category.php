@@ -3,6 +3,14 @@ $path = dirname(__FILE__);
 require_once $path . '/class/category.php';
 $path = dirname(__FILE__);
 require_once $path . '/class/product.php';
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +146,7 @@ require_once $path . '/class/product.php';
                                                                     </a>
                                                                 </h5>
                                                                 <span class="price">
-                                                                    <span class="new"><?php echo $row['price'] ?></span>
+                                                                    <span class="new"><?php echo number_format($row['price']) ?> đ</span>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -156,9 +164,9 @@ require_once $path . '/class/product.php';
                         <!-- Tab Content Area End -->
 
                         <!--  Pagination Area Start -->
-                        <div class="load-more-items text-center mb-md-60px mb-lm-60px mt-30px0px" data-aos="fade-up">
+                        <!-- <div class="load-more-items text-center mb-md-60px mb-lm-60px mt-30px0px" data-aos="fade-up">
                             <a href="#" class="btn btn-lg btn-primary btn-hover-dark m-auto"> Load More <i class="fa fa-refresh ml-15px" aria-hidden="true"></i></a>
-                        </div>
+                        </div> -->
                         <!--  Pagination Area End -->
                     </div>
                     <!-- Shop Bottom Area End -->
@@ -200,6 +208,52 @@ require_once $path . '/class/product.php';
         </div>
     </div>
     <!-- Shop Page End  -->
+    <br><br><br><br><br><br><br><br>
+    <!-- Feature Area Srart -->
+    <div class="feature-area pb-100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6  ">
+                    <!-- single item -->
+                    <div class="single-feature">
+                        <div class="feature-icon">
+                            <img src="assets/images/icons/1.png" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="title">Free Shipping</h4>
+                            <span class="sub-title">Capped at $39 per order</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- single item -->
+                <div class="col-lg-4 col-md-6 mb-md-30px mb-lm-30px mt-lm-30px">
+                    <div class="single-feature">
+                        <div class="feature-icon">
+                            <img src="assets/images/icons/2.png" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="title">Card Payments</h4>
+                            <span class="sub-title">12 Months Installments</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- single item -->
+                <div class="col-lg-4 col-md-6 ">
+                    <div class="single-feature">
+                        <div class="feature-icon">
+                            <img src="assets/images/icons/3.png" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="title">Easy Returns</h4>
+                            <span class="sub-title">Shop With Confidence</span>
+                        </div>
+                    </div>
+                    <!-- single item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Area End -->
 
     <!-- Footer Area Start -->
     <?php
