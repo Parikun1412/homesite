@@ -46,7 +46,7 @@ class OrderItem{
         $quantity = $this->conn->real_escape_string($quantity);
         $price = $this->conn->real_escape_string($price);
         $sql = "INSERT INTO tbl_order_item(`id_order`, `id_product`, `quantity`, `price`) VALUES('$id_order', '$id_product', '$quantity', '$price')";
-        $result = $this->conn->query($sql);
+        $result = $this->conn->query($sql) or die($this->conn->error);
         if ($result) {
             return $result;
         } else {

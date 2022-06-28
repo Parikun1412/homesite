@@ -38,7 +38,7 @@ class Order{
         $date = $this->conn->real_escape_string($date);
         $status = $this->conn->real_escape_string($status);
         $sql = "INSERT INTO tbl_order(`id_order`, `id_customer`, `fullname`, `phone`, `totalprice`, `date`, `status`) VALUES('$id_order', '$id_customer', '$fullname', '$phone', '$totalprice', '$date', '$status')";
-        $result = $this->conn->query($sql);
+        $result = $this->conn->query($sql) or die($this->conn->error);
         if ($result) {
             return $result;
         } else {

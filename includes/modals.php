@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
 <div class="modal popup-search-style" id="searchActive">
     <button type="button" class="close-btn" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
     <div class="modal-overlay">
@@ -40,11 +45,11 @@
                         <div class="col-lg-8 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
                             <div class="product-details-content quickview-content">
                                 <h2>Thông tin liên hệ</h2>
-                                <input type="text" class="form-control" placeholder="Họ và Tên...">
+                                <input type="text" class="form-control" name="name" value="" placeholder="Họ và Tên...">
                                 <br>
-                                <input type="text" class="form-control" placeholder="Số điện thoại...">
+                                <input type="text" class="form-control" name="phone" value="" placeholder="Số điện thoại...">
                                 <br>
-                                <button onclick="order" class="btn btn-primary" type="button">Tư vấn ngay</button>
+                                <button onclick="order()" class="btn btn-primary" type="button">Tư vấn ngay</button>
                             </div>
                         </div>
                     </div>

@@ -85,7 +85,7 @@ require_once $path . '/../class/customer.php';
                                     <tr>
                                         <th>Mã hóa đơn</th>
                                         <th>Tên khách hàng</th>
-                                        <th>Tổng tiền</th>
+                                        <th>Số điện thoại</th>
                                         <th>Ngày xuất</th>
                                         <th>Trạng thái</th>
                                         <th>Actions</th>
@@ -106,7 +106,7 @@ require_once $path . '/../class/customer.php';
 
                                                 <td><?php echo $row['fullname'] ?></td>
 
-                                                <td><?php echo $row['totalprice'] ?></td>
+                                                <td><?php echo $row['phone'] ?></td>
                                                 <td><?php echo $row['date'] ?></td>
                                                 <td>
                                                     <?php
@@ -119,7 +119,7 @@ require_once $path . '/../class/customer.php';
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <a href="javascript:;" class="text-dark" onclick="getDetail('<?php print $row['id_order'] ?>')" data-toggle="modal" data-target="#viewDetailModalId">
+                                                        <a href="javascript:;" class="text-dark" onclick="viewDetails('<?php print $row['id_order'] ?>')" data-toggle="modal" data-target="#viewDetailModalId">
                                                             <ion-icon name="eye-sharp"></ion-icon>
                                                         </a>
                                                         <!-- <a href="javascript:;" class="text-dark" data-toggle="modal" data-target="#updateModalId">
@@ -177,7 +177,7 @@ require_once $path . '/../class/customer.php';
 
     </div>
     <!--end wrapper-->
-
+<div id="switchModal"></div>
 
     <!-- JS Files-->
 
@@ -185,6 +185,7 @@ require_once $path . '/../class/customer.php';
     $path = dirname(__FILE__);
     require_once $path . '/includes/scripts.php';
     ?>
+    <script src="./assets/js/process-ajax/order.js"></script>
 
 </body>
 

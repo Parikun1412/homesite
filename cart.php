@@ -128,12 +128,13 @@ if (!isset($_SESSION['cart'])) {
     require_once $path . '/includes/modals.php';
     ?>
     <!-- Login Modal End -->
-
+<div id="processRespone"></div>
     <!-- Global Vendor, plugins JS -->
     <?php
     $path = dirname(__FILE__);
     require_once $path . '/includes/scripts.php';
     ?>
+    <script src="./assets/js/process-ajax/order.js"></script>
 </body>
 
 </html>

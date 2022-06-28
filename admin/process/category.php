@@ -17,7 +17,7 @@ if (isset($_POST['viewToAdd'])) {
                         <form class="row g-3 needs-validation" method="POST" onsubmit="add()">
                             <div class="col-md-6">
                                 <label for="validationCategoryID" class="form-label">Mã danh mục</label>
-                                <input type="text" class="form-control" id="validationCategoryID" name="categoryID" value="DM<?php echo (int) (microtime(true) * 1000) ?>" name="voucherId" readonly>
+                                <input type="text" class="form-control" id="validationCategoryID" name="categoryID" value="DM<?php echo (int) (microtime(true) * 1000) ?>" readonly>
                                 <div id="txtProductId" class="invalid-feedback">Nhập mã DM</div>
                             </div>
                             <div class="col-md-6">
