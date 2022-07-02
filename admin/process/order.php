@@ -79,7 +79,7 @@ if (isset($_POST['viewToProcess']) && isset($_POST['id_order'])) {
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $orderItemByID = $orderItemModel->getOrderItemByProductId($id_order);
+                                                        $orderItemByID = $orderItemModel->getOrderItemById($id_order);
                                                         if ($orderItemByID) {
                                                             while ($rowOrderItem = $orderItemByID->fetch_assoc()) {
                                                         ?>
