@@ -20,8 +20,8 @@ class Order{
 
     public function getOrderById($id_order){
         $id_order = $this->conn->real_escape_string($id_order);
-        $sql = "SELECT * FROM tbl_order WHERE `id_order` = $id_order";
-        $result = $this->conn->query($sql);
+        $sql = "SELECT * FROM tbl_order WHERE `id_order` = '$id_order'";
+        $result = $this->conn->query($sql) or die($this->conn->error);
         if ($result->num_rows > 0) {
             return $result;
         } else {

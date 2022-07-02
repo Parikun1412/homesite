@@ -18,10 +18,10 @@ class OrderItem{
         }
     }
 
-    public function getOrderItemById($id_orderitem){
-        $id_orderitem = $this->conn->real_escape_string($id_orderitem);
-        $sql = "SELECT * FROM tbl_order_item WHERE `id_orderitem` = $id_orderitem";
-        $result = $this->conn->query($sql);
+    public function getOrderItemById($id_order){
+        $id_order = $this->conn->real_escape_string($id_order);
+        $sql = "SELECT * FROM tbl_order_item WHERE `id_order` = '$id_order'";
+        $result = $this->conn->query($sql) ;
         if ($result->num_rows > 0) {
             return $result;
         } else {
@@ -31,7 +31,7 @@ class OrderItem{
 
     public function getOrderItemByProductId($id_product){
         $id_product = $this->conn->real_escape_string($id_product);
-        $sql = "SELECT * FROM tbl_order_item WHERE `id_product` = $id_product";
+        $sql = "SELECT * FROM tbl_order_item WHERE `id_product` = '$id_product'";
         $result = $this->conn->query($sql);
         if ($result->num_rows > 0) {
             return $result;
@@ -54,13 +54,12 @@ class OrderItem{
         }
     }
 
-    public function update($id_orderitem, $id_order, $id_product, $quantity, $price){
-        $id_orderitem = $this->conn->real_escape_string($id_orderitem);
+    public function update($id_order, $id_product, $quantity, $price){
         $id_order = $this->conn->real_escape_string($id_order);
         $id_product = $this->conn->real_escape_string($id_product);
         $quantity = $this->conn->real_escape_string($quantity);
         $price = $this->conn->real_escape_string($price);
-        $sql = "UPDATE tbl_order_item SET `id_order` = '$id_order', `id_product` = '$id_product', `quantity` = '$quantity', `price` = '$price' WHERE `id_orderitem` = '$id_orderitem'";
+        $sql = "UPDATE tbl_order_item SET `id_product` = '$id_product', `quantity` = '$quantity', `price` = '$price' WHERE `id_order` = '$id_order'";
         $result = $this->conn->query($sql);
         if ($result) {
             return $result;

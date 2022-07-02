@@ -13,3 +13,17 @@ function viewToProcess(id_order) {
         }
     })
 }
+
+function getDetailOrderItem(id_product) {
+    $.ajax({
+        url: './process/order.php',
+        type: 'POST',
+        data: {
+            id_product: id_product,
+            viewOrderItem: true,
+        },
+        success: function (data) {
+            $('#viewOrderItem').html(data);
+        }
+    });
+}
