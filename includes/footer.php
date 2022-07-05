@@ -6,9 +6,7 @@
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-6 mb-md-30px mb-lm-30px">
                         <div class="single-wedge">
-                            <div class="footer-logo">
-                                <a href="index.php"><img src="assets/images/logo/logo-white.png" alt=""></a>
-                            </div>
+                        <h4 class="footer-herading">Liên hệ</h4>
                             <p class="about-text">Công ty TNHH MTV Thực Phẩm Vũ Kiệt
                             </p>
                             <div class="footer-links">

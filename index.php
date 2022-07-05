@@ -268,6 +268,16 @@ if (!isset($_SESSION['cart'])) {
     ?>
     <!-- Feature Area End -->
 
+    <div class="feature-area pb-100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"> <img src="./assets/images/logo.png" width="100%" alt=""></div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer Area Start -->
     <?php
     $path = dirname(__FILE__);

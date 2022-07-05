@@ -67,11 +67,8 @@ if (!isset($_SESSION['cart'])) {
                     </div>
                 </div>
             </div>
-            <div class="intro-left">
-                <img src="assets/images/about-image/intro-left.png" alt="" class="intro-left-image">
-            </div>
             <div class="intro-right">
-                <img src="assets/images/about-image/intro-right.png" alt="" class="intro-right-image">
+                <img src="assets/images/about-image/house.png" alt="" width="72%" class="intro-right-image">
             </div>
         </div>
     </div>
@@ -85,17 +82,16 @@ if (!isset($_SESSION['cart'])) {
             <div class="row">
                 <div class="col-md-6 d-flex">
                     <div class="service-left align-self-center align-items-center">
-                        <img src="assets/images/about-image/srevice-left-img.png" alt="" class="service-left-image">
+                        <img src="./assets/images/ATTP.jpg" width="70%" alt="" class="service-left-image">
                     </div>
                 </div>
                 <div class="col-md-6 d-flex justify-content-center">
                     <div class="service-right-content align-self-center align-items-center">
-                        <span class="sami-title">100% Guaranteed Pure Cotton</span>
-                        <h2 class="title">Best Products Here
-                            Every Day</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius modjior tem incididunt
+                        <!-- <span class="sami-title">100% Guaranteed Pure Cotton</span> -->
+                        <h2 class="title">Giấy chứng nhận cơ sở đủ điều kiện An toàn thực phẩm</h2>
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius modjior tem incididunt
                             ut labore et dolore magna aliqua.</p>
-                        <a href="shop-left-sidebar.html" class="btn btn-primary service-btn"> Shop Now <i class="fa fa-shopping-basket ml-10px" aria-hidden="true"></i></a>
+                        <a href="shop-left-sidebar.html" class="btn btn-primary service-btn"> Shop Now <i class="fa fa-shopping-basket ml-10px" aria-hidden="true"></i></a> -->
                     </div>
                 </div>
             </div>
