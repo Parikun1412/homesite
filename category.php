@@ -68,9 +68,9 @@ if (!isset($_SESSION['cart'])) {
             <div class="row">
                 <div class="col-lg-9 order-lg-last col-md-12 order-md-first">
                     <!-- Shop Top Area Start -->
-                    <div class="shop-top-bar d-flex">
+                    <div class="shop-top-bar d-flex justify-content-center">
                         <!-- Left Side start -->
-                        <p> Đã tìm thấy <span>12</span> trong <span>30</span></p>
+                        <!-- <p> Đã tìm thấy <span>12 </span> trong <span>30</span></p> -->
                         <!-- Left Side End -->
                         <div class="shop-tab nav">
                             <a class="active" href="#shop-grid" data-bs-toggle="tab">
@@ -81,21 +81,21 @@ if (!isset($_SESSION['cart'])) {
                             </a>
                         </div>
                         <!-- Right Side Start -->
-                        <div class="select-shoing-wrap d-flex align-items-center">
+                        <!-- <div class="select-shoing-wrap d-flex align-items-center">
                             <div class="shot-product">
                                 <p>Sort By:</p>
                             </div>
                             <div class="shop-select">
-                                <select class="shop-sort">
+                                <select class="form-select" class="shop-sort">
                                     <option data-display="Relevance">Relevance</option>
-                                    <option value="1"> Name, A to Z</option>
+                                    <option value="1"> Tên, A to Z</option>
                                     <option value="2"> Name, Z to A</option>
                                     <option value="3"> Price, low to high</option>
                                     <option value="4"> Price, high to low</option>
                                 </select>
 
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Right Side End -->
                     </div>
                     <!-- Shop Top Area End -->
@@ -210,49 +210,10 @@ if (!isset($_SESSION['cart'])) {
     <!-- Shop Page End  -->
     <br><br><br><br><br><br><br><br>
     <!-- Feature Area Srart -->
-    <div class="feature-area pb-100px">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6  ">
-                    <!-- single item -->
-                    <div class="single-feature">
-                        <div class="feature-icon">
-                            <img src="assets/images/icons/1.png" alt="">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="title">Free Shipping</h4>
-                            <span class="sub-title">Capped at $39 per order</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- single item -->
-                <div class="col-lg-4 col-md-6 mb-md-30px mb-lm-30px mt-lm-30px">
-                    <div class="single-feature">
-                        <div class="feature-icon">
-                            <img src="assets/images/icons/2.png" alt="">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="title">Card Payments</h4>
-                            <span class="sub-title">12 Months Installments</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- single item -->
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="single-feature">
-                        <div class="feature-icon">
-                            <img src="assets/images/icons/3.png" alt="">
-                        </div>
-                        <div class="feature-content">
-                            <h4 class="title">Easy Returns</h4>
-                            <span class="sub-title">Shop With Confidence</span>
-                        </div>
-                    </div>
-                    <!-- single item -->
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+    $path = dirname(__FILE__);
+    require_once $path . '/includes/featureArea.php';
+    ?>
     <!-- Feature Area End -->
 
     <!-- Footer Area Start -->

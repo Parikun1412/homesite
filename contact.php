@@ -68,8 +68,8 @@ if (!isset($_SESSION['cart'])) {
                                     <img src="assets/images/icons/4.png" alt="">
                                 </div>
                                 <div class="info-box">
-                                    <h5 class="title">Phone:</h5>
-                                    <p><a href="tel:0123456789">012 345 67 89</a></p>
+                                    <h5 class="title">Số điện thoại:</h5>
+                                    <p><a href="tel:0123456789">0938 835 402</a></p>
                                 </div>
                             </div>
                             <div class="single-contact">
@@ -86,8 +86,8 @@ if (!isset($_SESSION['cart'])) {
                                     <img src="assets/images/icons/6.png" alt="">
                                 </div>
                                 <div class="info-box">
-                                    <h5 class="title">Address:</h5>
-                                    <p>Your address goes here</p>
+                                    <h5 class="title">Địa chỉ:</h5>
+                                    <p>135B Tây Lân, P. Bình Trị Đông A, Q. Bình Tân, TP. Hồ Chí Minh</p>
                                 </div>
                             </div>
                         </div>
@@ -95,20 +95,19 @@ if (!isset($_SESSION['cart'])) {
                     <div class="col-lg-7">
                         <div class="contact-form">
                             <div class="contact-title mb-30">
-                                <h2 class="title" data-aos="fade-up" data-aos-delay="200">Leave a Message</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available but the
-                                    suffered alteration in some form.</p>
+                                <h2 class="title" data-aos="fade-up" data-aos-delay="200">Tin nhắn hỗ trợ</h2>
+                                <p>Mọi thắc mắc bạn có thể gửi tin nhắn chúng tôi sẽ phản hồi sớm nhất</p>
                             </div>
                             <form class="contact-form-style" id="contact-form" action="assets/php/mail.php" method="post">
                                 <div class="row">
                                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                                        <input name="name" placeholder="Name*" type="text" />
+                                        <input name="name" placeholder="Tên của bạn*" type="text" />
                                     </div>
                                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                                         <input name="email" placeholder="Email*" type="email" />
                                     </div>
                                     <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
-                                        <textarea name="message" placeholder="Your Message*"></textarea>
+                                        <textarea name="message" placeholder="Tin nhắn của bạn*"></textarea>
                                         <button class="btn btn-primary mt-4" data-aos="fade-up" data-aos-delay="200" type="submit">Post Comment <i class="fa fa-arrow-right"></i></button>
                                     </div>
                                 </div>
@@ -124,7 +123,7 @@ if (!isset($_SESSION['cart'])) {
 
     <!-- map Area Start -->
 
-    <div class="contact-map">
+    <!-- <div class="contact-map">
         <div id="mapid">
             <div class="mapouter">
                 <div class="gmap_canvas">
@@ -133,7 +132,7 @@ if (!isset($_SESSION['cart'])) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- map Area End -->
 
     <!-- Footer Area Start -->

@@ -1,6 +1,6 @@
     <!-- Top Bar -->
 
-    <div class="header-to-bar" style="font-size: 20px!important; font-weight:bold; color:white">Gọi trực tiếp hoặc liên hệ Zalo số: 0938835402 - Trần Thị Hiên</div>
+    <div class="header-to-bar" style="font-size: 20px!important; font-weight:bold; color:white">Gọi trực tiếp hoặc liên hệ Zalo số: 0938 835 402 - Trần Thị Hiên</div>
 
     <!-- Top Bar -->
     <header>

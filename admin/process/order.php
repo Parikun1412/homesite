@@ -116,8 +116,18 @@ if (isset($_POST['viewToProcess']) && isset($_POST['id_order'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-1">
                                 <button class="btn btn-primary" type="submit">Xử lý</button>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <label for="validationProductTotalPrice" class="form-label">Lý do hủy</label>
+                                <input type="text" class="form-control" id="validationProducTotaltPrice" name="ProductTotalPrice" value="">
+                                <div id="txtProductTotalPrice" class="invalid-feedback">Nhập Tổng tiền</div>
+                            </div>
+                            <div class="col-md-1">
+                                <br>
+                                <button style="margin-top:10%;" class="btn btn-primary" type="submit">Hủy</button>
                             </div>
                         </form>
                     </div>
@@ -166,16 +176,8 @@ if (isset($_POST['viewOrderItem']) && isset($_POST['id_product'])) {
         </div>
         <div class="col-md-12">
             <label for="validationProductImage" class="form-label">Hình ảnh</label>
-            <img src="" alt="">
-        </div>
-        <div class="col-md-10">
-            <label for="validationProductTotalPrice" class="form-label">Lý do hủy</label>
-            <input type="text" class="form-control" id="validationProducTotaltPrice" name="ProductTotalPrice" value="">
-            <div id="txtProductTotalPrice" class="invalid-feedback">Nhập Tổng tiền</div>
-        </div>
-        <div class="col-md-2">
             <br>
-            <button style="margin-top:10%;" class="btn btn-primary" type="submit">Hủy</button>
+            <img src="<?php echo '.' . $productByID['image'] ?>" width="50%" alt="">
         </div>
     </div>
 <?php
