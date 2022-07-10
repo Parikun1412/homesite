@@ -108,7 +108,7 @@ if (!isset($_SESSION['cart'])) {
                             <div class="col">
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="shop-grid">
-                                        <div class="row mb-n-30px">
+                                        <div class="row mb-n-30px" id="grid_product">
                                             <?php
                                             $productModel = new Product();
                                             $products = $productModel->getProducts();
@@ -122,8 +122,8 @@ if (!isset($_SESSION['cart'])) {
                                                         <div class="product">
                                                             <div class="thumb">
                                                                 <a href="product.php?id_product=<?php echo $row['id_product'] ?>" class="image">
-                                                                    <img src="<?php echo $row['image'] ?>" alt="Product" />
-                                                                    <img class="hover-image" src="<?php echo $row['image'] ?>" alt="Product" />
+                                                                    <img src="<?php echo $row['image'] ?>" height="150px" alt="Product" />
+                                                                    <img class="hover-image" src="<?php echo $row['image'] ?>" height="100%" alt="Product" />
                                                                 </a>
                                                                 <!-- <span class="badges">
                                                                     <span class="new">New</span>
@@ -176,8 +176,8 @@ if (!isset($_SESSION['cart'])) {
                     <div class="shop-sidebar-wrap">
                         <!-- Sidebar single item -->
                         <div class="sidebar-widget-search">
-                            <form id="widgets-searchbox" action="#">
-                                <input class="input-field" type="text" placeholder="Tìm kiếm">
+                            <form id="widgets-searchbox" onsubmit="filterProductByKeyword()">
+                                <input class="input-field" type="text" value="" name="search" placeholder="Tìm kiếm">
                                 <button class="widgets-searchbox-btn" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
@@ -189,11 +189,11 @@ if (!isset($_SESSION['cart'])) {
                                 <ul>
                                     <?php
                                     $categoryModel = new Category();
-                                    $categoris = $categoryModel->getCategories();
-                                    if ($categoris) {
-                                        while ($rowCate = $categoris->fetch_assoc()) {
+                                    $categories = $categoryModel->getCategories();
+                                    if ($categories) {
+                                        while ($rowCate = $categories->fetch_assoc()) {
                                     ?>
-                                            <li><a href="#" class="selected m-0"><?php echo $rowCate['name'] ?> </a></li>
+                                            <li><a href="#" class="selected m-0" onclick="filterCategory('<?php echo $rowCate['id_category'] ?>')"><?php echo $rowCate['name'] ?> </a></li>
                                     <?php
                                         }
                                     }
@@ -236,6 +236,7 @@ if (!isset($_SESSION['cart'])) {
     $path = dirname(__FILE__);
     require_once $path . '/includes/scripts.php';
     ?>
+    <script src="./assets/js/process-ajax/category.js"></script>
 </body>
 
 </html>

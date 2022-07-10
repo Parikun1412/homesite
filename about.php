@@ -82,7 +82,7 @@ if (!isset($_SESSION['cart'])) {
             <div class="row">
                 <div class="col-md-6 d-flex">
                     <div class="service-left align-self-center align-items-center">
-                        <img src="./assets/images/ATTP.jpg" width="70%" alt="" class="service-left-image">
+                        <img src="./assets/images/about-image/ATTP.jpg" width="70%" alt="" class="service-left-image">
                     </div>
                 </div>
                 <div class="col-md-6 d-flex justify-content-center">

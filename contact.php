@@ -98,17 +98,17 @@ if (!isset($_SESSION['cart'])) {
                                 <h2 class="title" data-aos="fade-up" data-aos-delay="200">Tin nhắn hỗ trợ</h2>
                                 <p>Mọi thắc mắc bạn có thể gửi tin nhắn chúng tôi sẽ phản hồi sớm nhất</p>
                             </div>
-                            <form class="contact-form-style" id="contact-form" action="assets/php/mail.php" method="post">
+                            <form class="contact-form-style" id="contact-form" method="POST" onsubmit="postSupport()">
                                 <div class="row">
                                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                                        <input name="name" placeholder="Tên của bạn*" type="text" />
+                                        <input name="name" placeholder="Tên của bạn*" value=""  type="text" />
                                     </div>
                                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                                        <input name="email" placeholder="Email*" type="email" />
+                                        <input name="email" placeholder="Email*" value="" type="email" />
                                     </div>
                                     <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
-                                        <textarea name="message" placeholder="Tin nhắn của bạn*"></textarea>
-                                        <button class="btn btn-primary mt-4" data-aos="fade-up" data-aos-delay="200" type="submit">Post Comment <i class="fa fa-arrow-right"></i></button>
+                                        <textarea name="message" placeholder="Tin nhắn của bạn*" ></textarea>
+                                        <button class="btn btn-primary mt-4" data-aos="fade-up" data-aos-delay="200" type="submit">Gửi hỗ trợ <i class="fa fa-arrow-right"></i></button>
                                     </div>
                                 </div>
                             </form>

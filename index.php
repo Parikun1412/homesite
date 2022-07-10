@@ -78,7 +78,7 @@ if (!isset($_SESSION['cart'])) {
                             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 d-flex justify-content-center position-relative">
                                 <div class="show-case">
                                     <div class="hero-slide-image">
-                                        <img src="assets/images/banner/banner_ga.jpg" alt="" />
+                                        <img src="./assets/images/slider-image/gata.jpg" alt="" />
                                     </div>
                                     <!-- <div class="display-wrapper">
                                         <div class="content-side">
@@ -111,7 +111,7 @@ if (!isset($_SESSION['cart'])) {
                             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 d-flex justify-content-center position-relative">
                                 <div class="show-case">
                                     <div class="hero-slide-image">
-                                        <img src="assets/images/banner/banner-heo.png" alt="" />
+                                        <img src="assets/images/slider-image/heosua.jpg" alt="" />
                                     </div>
                                     <!-- <div class="display-wrapper">
                                         <div class="content-side">
@@ -194,7 +194,7 @@ if (!isset($_SESSION['cart'])) {
                                             <div class="product">
                                                 <div class="thumb">
                                                     <a href="product.php?id_product=<?php echo $row['id_product'] ?>" class="image">
-                                                        <img src="<?php echo $row['image'] ?>" alt="Product" />
+                                                        <img src="<?php echo $row['image'] ?>" height="150px" alt="Product" />
                                                         <img class="hover-image" src="<?php echo $row['image'] ?>" alt="Product" />
                                                     </a>
                                                     <!-- <span class="badges">
@@ -212,7 +212,18 @@ if (!isset($_SESSION['cart'])) {
                                                     <h5 class="title"><a href="product.php?id_product=<?php echo $row['id_product'] ?>"><?php echo $row['name'] ?></a>
                                                     </h5>
                                                     <span class="price">
-                                                        <span class="new"><?php echo number_format($row['price']) ?> đ</span>
+                                                        <?php
+                                                        if (substr($row['name'], 0, 3) == 'Heo') {
+                                                        ?>
+                                                            <span class="new"><?php echo number_format($row['price']) ?> đ <span>/ 1 con </span></span>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <span class="new"><?php echo number_format($row['price']) ?> đ <span>/ 1 kg </span></span>
+                                                        <?php
+                                                        }
+                                                        ?>
+
                                                     </span>
                                                 </div>
                                             </div>
@@ -272,7 +283,7 @@ if (!isset($_SESSION['cart'])) {
         <div class="container">
             <div class="row">
                 <div class="col-md-4"></div>
-                <div class="col-md-4"> <img src="./assets/images/logo.png" width="100%" alt=""></div>
+                <div class="col-md-4"> <img src="./assets/images/logo/logo.png" width="100%" alt=""></div>
                 <div class="col-md-4"></div>
             </div>
         </div>

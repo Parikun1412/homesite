@@ -138,6 +138,7 @@ function active() {
         success: function (respone) {
             if(respone == 1){
                 alert('Đăng bán thành công');
+                location.reload();
             }else{
                 $('#processRespone').html(respone);
             }

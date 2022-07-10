@@ -2,13 +2,16 @@
 $path = dirname(__FILE__);
 require_once $path . '/../config/connection.php';
 
-class Product{
+class Product
+{
     private $conn;
-    public function __construct(){
+    public function __construct()
+    {
         $this->conn = getConnection();
     }
 
-    public function getProducts(){
+    public function getProducts()
+    {
         $sql = "SELECT * FROM tbl_product";
         $result = $this->conn->query($sql);
         if ($result->num_rows > 0) {
@@ -18,7 +21,8 @@ class Product{
         }
     }
 
-    public function getProductById($id_product){
+    public function getProductById($id_product)
+    {
         $id_product = $this->conn->real_escape_string($id_product);
         $sql = "SELECT * FROM tbl_product WHERE `id_product` = '$id_product'";
         $result = $this->conn->query($sql);
@@ -29,7 +33,8 @@ class Product{
         }
     }
 
-    public function insert($id_product, $id_category, $name, $price, $image, $status, $description){
+    public function insert($id_product, $id_category, $name, $price, $image, $status, $description)
+    {
         $id_product = $this->conn->real_escape_string($id_product);
         $id_category = $this->conn->real_escape_string($id_category);
         $name = $this->conn->real_escape_string($name);
@@ -46,7 +51,8 @@ class Product{
         }
     }
 
-    public function update($id_product, $id_category, $name, $price, $image, $status, $description){
+    public function update($id_product, $id_category, $name, $price, $image, $status, $description)
+    {
         $id_product = $this->conn->real_escape_string($id_product);
         $id_category = $this->conn->real_escape_string($id_category);
         $name = $this->conn->real_escape_string($name);
@@ -63,7 +69,8 @@ class Product{
         }
     }
 
-    public function delete($id_product){
+    public function delete($id_product)
+    {
         $id_product = $this->conn->real_escape_string($id_product);
         $sql = "DELETE FROM tbl_product WHERE `id_product` = '$id_product'";
         $result = $this->conn->query($sql);
@@ -74,17 +81,38 @@ class Product{
         }
     }
 
-    public function active($id_product){
+    public function active($id_product)
+    {
         $id_product = $this->conn->real_escape_string($id_product);
         $sql = "UPDATE tbl_product SET `status` = 1 WHERE `id_product` = '$id_product'";
         $result = $this->conn->query($sql);
-        if($result){
+        if ($result) {
             return $result;
+        } else {
+            return false;
         }
-        else{
+    }
+
+    public function filterProductByKeyword($keyword)
+    {
+        $keyword = $this->conn->real_escape_string($keyword);
+        $sql = "SELECT * FROM tbl_product WHERE name LIKE '%$keyword%'";
+        $result = $this->conn->query($sql);
+        if ($result->num_rows > 0) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
+    public function filterProductByCategoryFilter($category)
+    {
+        $sql = "SELECT * FROM tbl_product, (SELECT `id_category` FROM `tbl_category` WHERE `id_category` = '$category') AS temp WHERE tbl_product.id_category = temp.id_category";
+        $result = $this->conn->query($sql) or die($this->conn->error);
+        if ($result->num_rows > 0) {
+            return $result;
+        } else {
             return false;
         }
     }
 }
-
-?>

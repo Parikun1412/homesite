@@ -94,9 +94,17 @@
     <li>
       <a href="customer.php">
         <div class="parent-icon">
-          <i class="bi bi-person-bounding-box"></i>
+          <i class="bi bi-person-circle"></i>
         </div>
         <div class="menu-title">Khách hàng</div>
+      </a>
+    </li>
+    <li>
+      <a href="customer-support.php">
+        <div class="parent-icon">
+          <i class="bi bi-person-bounding-box"></i>
+        </div>
+        <div class="menu-title">Hỗ trợ khách hàng</div>
       </a>
     </li>
   </ul>

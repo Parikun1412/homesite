@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-auto align-self-center">
                         <div class="header-logo">
-                            <a href="index.php"><img src="./assets/images/logo.png" alt="Site Logo" /></a>
+                            <a href="index.php"><img src="./assets/images/logo/logo.png" alt="Site Logo" /></a>
                         </div>
                     </div>
                     <div class="col align-self-center d-none d-lg-block">
