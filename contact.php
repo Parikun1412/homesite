@@ -154,6 +154,7 @@ if (!isset($_SESSION['cart'])) {
     $path = dirname(__FILE__);
     require_once $path . '/includes/scripts.php';
     ?>
+    <script src="./assets/js/process-ajax/contact.js"></script>
 </body>
 
 </html>

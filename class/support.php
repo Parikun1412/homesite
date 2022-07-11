@@ -35,6 +35,12 @@ class Support
 
     public function insert($id_support, $fullname, $email, $message){
         $id_support = $this->conn->real_escape_string($id_support);
+        $fullname = $this->conn->real_escape_string($fullname);
+        $email = $this->conn->real_escape_string($email);
+        $message = $this->conn->real_escape_string($message);
+        $sql = "INSERT INTO tbl_support (id_support, fullname, email, message) VALUES ('$id_support', '$fullname', '$email', '$message')";
+        $result = $this->conn->query($sql);
+        return $result;
             
     }
 

@@ -175,7 +175,7 @@ require_once $path . '/../class/support.php';
 
     </div>
     <!--end wrapper-->
-
+    <div id="switchModal"></div>
 
     <!-- JS Files-->
 
@@ -183,7 +183,7 @@ require_once $path . '/../class/support.php';
     $path = dirname(__FILE__);
     require_once $path . '/includes/scripts.php';
     ?>
-
+    <script src="./assets/js/process-ajax/customer-support.js"></script>
 </body>
 
 </html>
