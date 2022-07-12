@@ -7,7 +7,6 @@
         <div class="body customScroll">
             <ul class="minicart-product-list" id="cart-items">
                 <?php
-                var_dump($_SESSION['cart']);
                 $path = dirname(__FILE__);
                 require_once $path . '/../process/product.php';
                 ?>

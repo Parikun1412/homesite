@@ -200,7 +200,7 @@ if (!isset($_SESSION['cart'])) {
                                                     <!-- <span class="badges">
                                                         <span class="new">New</span>
                                                     </span> -->
-                                                    <button title="Add To Cart" class=" add-to-cart">Thêm vào giỏ hàng</button>
+                                                    <button title="Add To Cart" onclick="addToCart('<?php print $row['id_product'] ?>')" class=" add-to-cart">Thêm vào giỏ hàng</button>
                                                 </div>
                                                 <div class="content">
                                                     <!-- <span class="ratings">
@@ -310,6 +310,7 @@ if (!isset($_SESSION['cart'])) {
     $path = dirname(__FILE__);
     require_once $path . '/includes/scripts.php';
     ?>
+    <script src="./assets/js/process-ajax/product.js"></script>
 </body>
 
 </html>

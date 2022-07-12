@@ -133,7 +133,7 @@ if (!isset($_SESSION['cart'])) {
                                                                     <a href="#" class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a>
                                                                     <a href="compare.html" class="action compare" title="Compare"><i class="pe-7s-refresh-2"></i></a>
                                                                 </div> -->
-                                                                <button title="Add To Cart" class=" add-to-cart">Thêm vào giỏ hàng</button>
+                                                                <button title="Add To Cart" onclick="addToCart('<?php print $row['id_product'] ?>')" class=" add-to-cart">Thêm vào giỏ hàng</button>
                                                             </div>
                                                             <div class="content">
                                                                 <!-- <span class="ratings">
@@ -237,6 +237,7 @@ if (!isset($_SESSION['cart'])) {
     require_once $path . '/includes/scripts.php';
     ?>
     <script src="./assets/js/process-ajax/category.js"></script>
+    <script src="./assets/js/process-ajax/product.js"></script>
 </body>
 
 </html>
