@@ -17,7 +17,7 @@
                 </ul>
             </div>
             <!-- OffCanvas Menu End -->
-            <div class="offcanvas-social mt-auto">
+            <!-- <div class="offcanvas-social mt-auto">
                 <ul>
                     <li>
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -35,6 +35,6 @@
                         <a href="#"><i class="fa fa-instagram"></i></a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>

@@ -8310,6 +8310,9 @@ only screen and (max-width: 479px) {
   .modal-dialog .img-responsive {
     display: none;
   }
+  .header-logo img{
+    width: 60%!important;
+}
 }
 
 @media only screen and (max-width: 479px) {
@@ -8322,6 +8325,9 @@ only screen and (max-width: 479px) {
   .modal-dialog .img-responsive {
     display: none;
   }
+  .header-logo img{
+    width: 60%!important;
+}
 }
 
 .modal.popup-order-style .modal-dialog .modal-content,

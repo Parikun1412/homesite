@@ -199,7 +199,7 @@ if (!isset($_SESSION['cart'])) {
                                             <!-- <a href="#" class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a> -->
                                             <!-- <a href="compare.html" class="action compare" title="Compare"><i class="pe-7s-refresh-2"></i></a> -->
                                         </div>
-                                        <button title="Add To Cart" onclick="addToCart()" class=" add-to-cart">Add
+                                        <button title="Add To Cart" onclick="addToCart('<?php print $row['id_product'] ?>')" class=" add-to-cart">Add
                                             To Cart</button>
                                     </div>
                                     <div class="content">

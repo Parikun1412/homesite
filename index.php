@@ -71,7 +71,7 @@ if (!isset($_SESSION['cart'])) {
                                     <span class="category">Offer 2022</span>
                                     <h2 class="title-1">Gà ta</h2>
                                     <!-- <h2 class="title-2"><span>50%</span> Off</h2> -->
-                                    <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark">Mua
+                                    <a href="category.php" class="btn btn-lg btn-primary btn-hover-dark">Mua
                                         ngay<i class="fa fa-shopping-basket ml-15px" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ if (!isset($_SESSION['cart'])) {
                                     <span class="category">Offer 2022</span>
                                     <h2 class="title-1">Heo sữa</h2>
                                     <!-- <h2 class="title-2"><span>50%</span> Off</h2> -->
-                                    <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark">Mua
+                                    <a href="category.php" class="btn btn-lg btn-primary btn-hover-dark">Mua
                                         ngay<i class="fa fa-shopping-basket ml-15px" aria-hidden="true"></i></a>
                                 </div>
                             </div>
