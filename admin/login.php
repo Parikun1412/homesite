@@ -95,6 +95,7 @@
                         alert("Thông tin đăng nhập không hợp lệ!");
                         console.log(response);
                     }
+                    // console.log(response);
                 }
             });
         }

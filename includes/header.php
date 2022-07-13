@@ -1,3 +1,12 @@
+    <?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+    ?>
+
     <!-- Top Bar -->
 
     <div class="header-to-bar" style="font-size: 20px!important; font-weight:bold; color:white">Gọi trực tiếp hoặc liên hệ Zalo số: 0938 835 402 - Trần Thị Hiên</div>
@@ -38,7 +47,7 @@
                             <!-- Single Wedge End -->
                             <a href="#offcanvas-cart" class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                                 <i class="pe-7s-shopbag"></i>
-                                <span class="header-action-num">01</span>
+                                <span class="header-action-num"><?php echo count($_SESSION['cart']) ?></span>
                                 <!-- <span class="cart-amount">€30.00</span> -->
                             </a>
                             <a href="#offcanvas-mobile-menu" class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">

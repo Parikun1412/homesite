@@ -1,3 +1,9 @@
+<?php
+$path = dirname(__FILE__);
+require_once $path . '/../../lib/checkLogin.php';
+checkLogin();
+?>
+
 <aside class="sidebar-wrapper" data-simplebar="true">
   <div class="sidebar-header">
     <div>
@@ -107,6 +113,15 @@
         <div class="menu-title">Hỗ trợ khách hàng</div>
       </a>
     </li>
+    <li>
+      <a href="account.php">
+        <div class="parent-icon">
+          <i class="bi bi-list-nested"></i>
+        </div>
+        <div class="menu-title">Tài khoản</div>
+      </a>
+    </li>
   </ul>
+
   <!--end navigation-->
 </aside>

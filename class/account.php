@@ -23,7 +23,7 @@ class Account
     public function getAccountById($id_account)
     {
         $id_account = $this->conn->real_escape_string($id_account);
-        $sql = "SELECT * FROM tbl_account WHERE `id_account` = $id_account";
+        $sql = "SELECT * FROM tbl_account WHERE `id_account` = '$id_account'";
         $result = $this->conn->query($sql);
         if ($result->num_rows > 0) {
             return $result;
@@ -31,13 +31,12 @@ class Account
             return false;
         }
     }
-    public function insert($id_account, $username, $password, $status)
+    public function insert($id_account, $username, $password)
     {
         $id_account = $this->conn->real_escape_string($id_account);
         $username = $this->conn->real_escape_string($username);
         $password = $this->conn->real_escape_string($password);
-        $status = $this->conn->real_escape_string($status);
-        $sql = "INSERT INTO tbl_account(`id_account`, `username`, `password`, `status`) VALUES('$id_account', '$username', '$password', '$status')";
+        $sql = "INSERT INTO tbl_account(`id_account`, `username`, `password`) VALUES('$id_account', '$username', '".md5($password)."')";
         $result = $this->conn->query($sql);
         if ($result) {
             return $result;
@@ -52,7 +51,21 @@ class Account
         $username = $this->conn->real_escape_string($username);
         $password = $this->conn->real_escape_string($password);
         $status = $this->conn->real_escape_string($status);
-        $sql = "UPDATE tbl_account SET `username` = '$username', `password` = '$password', `status` = '$status' WHERE `id_account` = '$id_account'";
+        $sql = "UPDATE tbl_account SET `username` = '$username', `password` = '".md5($password)."', `status` = '$status' WHERE `id_account` = '$id_account'";
+        $result = $this->conn->query($sql);
+        if ($result) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateWithoutPassword($id_account, $username, $status)
+    {
+        $id_account = $this->conn->real_escape_string($id_account);
+        $username = $this->conn->real_escape_string($username);
+        $status = $this->conn->real_escape_string($status);
+        $sql = "UPDATE tbl_account SET `username` = '$username', `status` = '$status' WHERE `id_account` = '$id_account'";
         $result = $this->conn->query($sql);
         if ($result) {
             return $result;
@@ -72,6 +85,14 @@ class Account
             return false;
         }
     }
-}
 
-?>
+    public function login($username, $password) {
+        $username = $this->conn->real_escape_string($username);
+        $password = $this->conn->real_escape_string($password);
+        $sql = "SELECT * FROM tbl_account WHERE `username` = '$username' AND `password` = '$password'";
+        $result = $this->conn->query($sql);
+        if ($result->num_rows >0) {
+            return $result;
+        }else return false;
+    }
+}

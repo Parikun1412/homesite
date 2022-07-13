@@ -1,5 +1,5 @@
     <!-- Add site Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon/favicon.ico" type="image/png">
+    <link rel="shortcut icon" href="assets/images/favicon/VK.ico" type="image/png">
 
 
     <!-- vendor css (Icon Font) -->

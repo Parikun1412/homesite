@@ -85,7 +85,7 @@ if (!isset($_SESSION['cart'])) {
                                                 <td class="product-name"><a href="product.php?id_product=<?php echo $value['id_product'] ?>"><?php echo $value['name'] ?></a></td>
                                                 <td class="product-price-cart"><span class="amount"><?php echo number_format($value['price']) ?> đ</span></td>
                                                 <td class="product-remove">
-                                                    <a href="#"><i class="fa fa-times"></i></a>
+                                                    <a href="#" onclick=" confirm('Bạn có muốn xóa không') ? removeItem('<?php print $value['id_product'] ?>') : event.preventDefault()"><i class="fa fa-times"></i></a>
                                                 </td>
                                             </tr>
                                     <?php
@@ -135,6 +135,7 @@ if (!isset($_SESSION['cart'])) {
     require_once $path . '/includes/scripts.php';
     ?>
     <script src="./assets/js/process-ajax/order.js"></script>
+    <script src="./assets/js/process-ajax/product.js"></script>
 </body>
 
 </html>
