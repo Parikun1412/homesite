@@ -32,6 +32,7 @@ if (isset($_POST['order']) && isset($_POST['name']) && isset($_POST['phone'])) {
             }
             if ($addOrderItem) {
                 echo '<script>alert("Đặt hàng thành công - chúng tôi sẽ liên hệ cho bạn sớm nhất")</script>';
+                session_destroy();
             } else {
                 echo '<script>alert("Hệ thống bị lỗi - vui lòng liên hệ trực tiếp số điện thoại")</script>';
             }
