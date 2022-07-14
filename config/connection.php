@@ -1,5 +1,9 @@
 <?php 
     function getConnection(){
+        // $servername = "localhost:3306";
+        // $username = "vukietfo_vukietadmin";
+        // $password = "vukietadmin##*";
+        // $dbname = "vukietfo_vukiet";
         $servername = "localhost";
         $username = "root";
         $password = "";
